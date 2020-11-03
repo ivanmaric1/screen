@@ -1,0 +1,23 @@
+@import './_parameters';
+
+.UserMenu {
+  &-list {
+    list-style: none;
+    display: flex;
+    font-family: var(--main-font);
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    li {
+      padding: 0rem 2rem 1rem 2rem;
+      a {
+        text-decoration: none;
+        color: var(--main-blue);
+        text-transform: uppercase;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}

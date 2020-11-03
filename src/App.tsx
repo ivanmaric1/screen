@@ -1,9 +1,10 @@
 import React from 'react';
+import Shop from './components/Shop';
 
 function App() {
   return (
     <div className="App">
-      <h1>sdsddsv</h1>
+      <Shop />
     </div>
   );
 }
