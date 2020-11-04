@@ -10,7 +10,11 @@ class ActionBar extends Component<Props, State> {
     return (
       <div className="ActionBar">
         <div className="ActionBar-search">
-          <input type="text" placeholder="Pretraži" />
+          <input
+            type="text"
+            placeholder="Pretraži"
+            className="ActionBar-search-field"
+          />
           <i className="fas fa-search fa-lg"></i>
         </div>
         <div className="ActionBar-cart">
