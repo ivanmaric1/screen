@@ -9,11 +9,12 @@
     font-weight: 700;
 
     li {
-      padding: 0rem 2rem 1rem 2rem;
+      padding: 0rem 1.5rem 1rem 1.5rem;
       a {
         text-decoration: none;
         color: var(--main-blue);
         text-transform: uppercase;
+        cursor: pointer;
         &:hover {
           color: red;
         }

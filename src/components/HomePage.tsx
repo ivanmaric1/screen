@@ -6,6 +6,9 @@ import Tablets from './Tablets';
 import Watches from './Watches';
 import Additional from './Additional';
 import Sale from './Sale';
+import Info from './Info';
+import Delivery from './Delivery';
+import './HomePage.scss';
 
 interface state {
   renderPage: string;
@@ -36,12 +39,18 @@ class HomePage extends Component<{}, state> {
     if (this.state.renderPage === 'sale') {
       return <Sale />;
     }
+    if (this.state.renderPage === 'info') {
+      return <Info />;
+    }
+    if (this.state.renderPage === 'delivery') {
+      return <Delivery />;
+    }
   };
-
+  //staviti ternery ovdjer
   render() {
     return (
       <div>
-        <Header />
+        <Header setPageToRender={this.setPageToRender} />
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
           {this.state.renderPage === 'phones' ? (

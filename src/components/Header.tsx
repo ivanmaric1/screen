@@ -4,7 +4,11 @@ import ActionBar from './ActionBar';
 import logo from '../img/Logo.png';
 import './Header.scss';
 
-class Header extends React.Component {
+interface Props {
+  setPageToRender: (page: string) => void;
+}
+
+class Header extends React.Component<Props> {
   render() {
     return (
       <div className="Header">
@@ -20,7 +24,7 @@ class Header extends React.Component {
           </div>
         </div>
         <div className="Header-features">
-          <UserMenu />
+          <UserMenu setPageToRender={this.props.setPageToRender} />
           <ActionBar />
         </div>
       </div>

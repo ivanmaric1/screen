@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './UserMenu.scss';
 
-export interface Props {}
+interface Props {
+  setPageToRender: (page: string) => void;
+}
 
 export interface State {}
 
@@ -11,16 +13,25 @@ class UserMenu extends Component<Props, State> {
       <div className="UserMenu">
         <ul className="UserMenu-list">
           <li>
-            <a href="#">Osnovne informacije</a>
+            <a onClick={() => this.props.setPageToRender('info')}>
+              Osnovne informacije
+            </a>
           </li>
           <li>
-            <a href="#">Kontakt</a>
+            <a onClick={() => this.props.setPageToRender('delivery')}>
+              Dostava
+            </a>
           </li>
           <li>
-            <a href="#">Profil</a>
+            <a onClick={() => this.props.setPageToRender('kontakt')}>Kontakt</a>
           </li>
           <li>
-            <a href="#">Prijava | Registracija</a>
+            <a onClick={() => this.props.setPageToRender('profil')}>Profil</a>
+          </li>
+          <li>
+            <a onClick={() => this.props.setPageToRender('login')}>
+              Prijava | Registracija
+            </a>
           </li>
         </ul>
       </div>
