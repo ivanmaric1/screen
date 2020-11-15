@@ -1,0 +1,22 @@
+.PhoneCard {
+  width: 80%;
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  font-family: var(--main-font);
+  &-name {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  &-img {
+    width: 250px;
+  }
+
+  &-price {
+    text-align: center;
+  }
+}

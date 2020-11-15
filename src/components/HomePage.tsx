@@ -8,6 +8,8 @@ import Additional from './Additional';
 import Sale from './Sale';
 import Info from './Info';
 import Delivery from './Delivery';
+import Contact from './Contact';
+
 import './HomePage.scss';
 
 interface state {
@@ -44,6 +46,9 @@ class HomePage extends Component<{}, state> {
     }
     if (this.state.renderPage === 'delivery') {
       return <Delivery />;
+    }
+    if (this.state.renderPage === 'contact') {
+      return <Contact />;
     }
   };
   //staviti ternery ovdjer

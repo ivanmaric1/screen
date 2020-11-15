@@ -23,7 +23,7 @@ class UserMenu extends Component<Props, State> {
             </a>
           </li>
           <li>
-            <a onClick={() => this.props.setPageToRender('kontakt')}>Kontakt</a>
+            <a onClick={() => this.props.setPageToRender('contact')}>Kontakt</a>
           </li>
           <li>
             <a onClick={() => this.props.setPageToRender('profil')}>Profil</a>
