@@ -5,23 +5,109 @@ import PhoneCard from './PhoneCard';
 import './Phones.scss';
 
 interface State {
-  brand: string;
+  showAll: boolean;
+  samsung: boolean;
+  huawei: boolean;
+  iphone: boolean;
+  xiaomi: boolean;
+  lowPrice: boolean;
+  mediumPrice: boolean;
+  highPrice: boolean;
+  megaPrice: boolean;
 }
 
 class Phones extends Component<{}, State> {
   constructor(props: any) {
     super(props);
-    this.state = { brand: 'all' };
+    this.state = {
+      showAll: true,
+      samsung: false,
+      huawei: false,
+      iphone: false,
+      xiaomi: false,
+      lowPrice: true,
+      mediumPrice: true,
+      highPrice: true,
+      megaPrice: true,
+    };
   }
 
-  setBrand = (brand: string) => {
-    this.setState({ brand });
+  setSamsung = () => {
+    this.setState({ samsung: true, showAll: false });
   };
+  setHuawei = () => {
+    this.setState({ huawei: true, showAll: false });
+  };
+  setIphone = () => {
+    this.setState({ iphone: true, showAll: false });
+  };
+  setXiaomi = () => {
+    this.setState({ xiaomi: true, showAll: false });
+  };
+
+  closeSamsung = () => {
+    if (!this.state.huawei && !this.state.iphone && !this.state.xiaomi) {
+      this.setState({ samsung: false, showAll: true });
+    } else {
+      this.setState({ samsung: false });
+    }
+  };
+
+  closeHuawei = () => {
+    if (!this.state.samsung && !this.state.iphone && !this.state.xiaomi) {
+      this.setState({ huawei: false, showAll: true });
+    } else {
+      this.setState({ huawei: false });
+    }
+  };
+
+  closeIphone = () => {
+    if (!this.state.huawei && !this.state.samsung && !this.state.xiaomi) {
+      this.setState({ iphone: false, showAll: true });
+    } else {
+      this.setState({ iphone: false });
+    }
+  };
+
+  closeXiaomi = () => {
+    if (!this.state.huawei && !this.state.iphone && !this.state.samsung) {
+      this.setState({ xiaomi: false, showAll: true });
+    } else {
+      this.setState({ xiaomi: false });
+    }
+  };
+
+  setPrice = (price: string) => {
+    if (price === 'low') {
+      this.setState({ lowPrice: true });
+    } else if (price === 'medium') {
+      this.setState({ mediumPrice: true });
+    } else if (price === 'high') {
+      this.setState({ highPrice: true });
+    } else if (price === 'mega') {
+      this.setState({ megaPrice: true });
+    }
+  };
+
+  removePrice = (price: string) => {
+    if (price === 'low') {
+      this.setState({ lowPrice: false });
+    } else if (price === 'medium') {
+      this.setState({ mediumPrice: false });
+    } else if (price === 'high') {
+      this.setState({ highPrice: false });
+    } else if (price === 'mega') {
+      this.setState({ megaPrice: false });
+    }
+  };
+
+  resetPrice = () => {};
 
   renderCards = () => {
     let phonesCards: ReactElement[] = [];
+    let filteredPhonesCards: ReactElement[] = [];
 
-    if (this.state.brand === 'all' || this.state.brand === 'samsung') {
+    if (this.state.showAll || this.state.samsung) {
       let keys = Object.keys(phonesBase.samsung);
       keys.map((phone) => {
         phonesCards.push(
@@ -34,7 +120,7 @@ class Phones extends Component<{}, State> {
       });
     }
 
-    if (this.state.brand === 'all' || this.state.brand === 'huawei') {
+    if (this.state.showAll || this.state.huawei) {
       let keys = Object.keys(phonesBase.huawei);
       keys.map((phone) => {
         phonesCards.push(
@@ -47,7 +133,7 @@ class Phones extends Component<{}, State> {
       });
     }
 
-    if (this.state.brand === 'all' || this.state.brand === 'iphone') {
+    if (this.state.showAll || this.state.iphone) {
       let keys = Object.keys(phonesBase.iphone);
       keys.map((phone) => {
         phonesCards.push(
@@ -60,7 +146,7 @@ class Phones extends Component<{}, State> {
       });
     }
 
-    if (this.state.brand === 'all' || this.state.brand === 'xiaomi') {
+    if (this.state.showAll || this.state.xiaomi) {
       let keys = Object.keys(phonesBase.xiaomi);
       keys.map((phone) => {
         phonesCards.push(
@@ -73,16 +159,59 @@ class Phones extends Component<{}, State> {
       });
     }
 
-    console.log(phonesCards);
+    if (this.state.lowPrice) {
+      let filtered: any = phonesCards.filter((item) =>
+        Number(
+          item.props.cijena.slice(0, -6).replace(/\s/g, '') > 0 &&
+            Number(item.props.cijena.slice(0, -6).replace(/\s/g, '') < 1500)
+        )
+      );
+      filteredPhonesCards.push(filtered);
+    }
+    if (this.state.mediumPrice) {
+      let filtered: any = phonesCards.filter((item) =>
+        Number(
+          item.props.cijena.slice(0, -6).replace(/\s/g, '') > 1500 &&
+            Number(item.props.cijena.slice(0, -6).replace(/\s/g, '') < 3000)
+        )
+      );
+      filteredPhonesCards.push(filtered);
+    }
+    if (this.state.highPrice) {
+      let filtered: any = phonesCards.filter((item) =>
+        Number(
+          item.props.cijena.slice(0, -6).replace(/\s/g, '') > 3000 &&
+            Number(item.props.cijena.slice(0, -6).replace(/\s/g, '') < 6000)
+        )
+      );
+      filteredPhonesCards.push(filtered);
+    }
+    if (this.state.megaPrice) {
+      let filtered: any = phonesCards.filter((item) =>
+        Number(item.props.cijena.slice(0, -6).replace(/\s/g, '') > 6000)
+      );
+      filteredPhonesCards.push(filtered);
+    }
 
-    return phonesCards;
+    return filteredPhonesCards;
   };
 
   render() {
     return (
       <div className="Phones">
-        <Filter setBrand={this.setBrand} />
-        {this.renderCards()}
+        <Filter
+          setSamsung={this.setSamsung}
+          setHuawei={this.setHuawei}
+          setIphone={this.setIphone}
+          setXiaomi={this.setXiaomi}
+          closeSamsung={this.closeSamsung}
+          closeHuawei={this.closeHuawei}
+          closeIphone={this.closeIphone}
+          closeXiaomi={this.closeXiaomi}
+          setPrice={this.setPrice}
+          removePrice={this.removePrice}
+        />
+        <div className="Phones-items">{this.renderCards()}</div>
       </div>
     );
   }
@@ -140,7 +269,7 @@ const phonesBase = {
       ime: 'Galaxy Z Flip Purple Mirror',
       opis:
         'Galaxy Z Flip preklapa se do iznenađujuće male veličine čime se postiže izvanredno dizajnirani telefon koji pristaje u tvoj džep, torbu ili modni dodatak',
-      cijena: '11 199 kn',
+      cijena: '11 199,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/sm_f700f_galaxyzflip_140220__0007_fronttabletop_purple_200223132743_500x700.png',
@@ -162,7 +291,7 @@ const phonesBase = {
       ime: 'Galaxy Note10 Dual SIM Aura Black',
       opis:
         'Vrlo elegantan nehrđajući čelik i staklo savršeno se stapaju - sve u impresivno tankom dizajnu.',
-      cijena: '6 449 kn',
+      cijena: '6 449,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/500x700__0026_samsungnote10_front_pen_aurablack_201005110947_500x700.png',
@@ -183,7 +312,7 @@ const phonesBase = {
       ime: 'Galaxy S10 Lite Dual SIM Black',
       opis:
         'Boje iz Magical Prism palete S10 Lite uređaja izgledaju zadivljujuće svaki put kad ih pogledaš. Zahvaljujući uglađenim i zaobljenim rubovima koji omogućuju ergonomsko prijanjanje, S10 Lite predstavlja savršen spoj udobnog ležanja u ruci i oku ugodnog dizajna.',
-      cijena: '4 999 kn',
+      cijena: '4 999,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/galaxys10_lite_front_prism_black_290120_201001114843_500x700.png',
@@ -204,7 +333,7 @@ const phonesBase = {
       ime: 'Galaxy A71 Dual Sim Black',
       opis:
         'Super AMOLED Plus tehnologija prikaza boja, koja se nalazi u podlozi simetrično poravnatog Infinity-O zaslona dijagonale 6,7“, Galaxy A71 uređaju donosi realističan prikaz boja u svemu što gledaš i radiš – od igranja videoigara i gledanja filmova do pregledavanja interneta i obavljanja više zadataka u isto vrijeme. Zaslon ne mora biti prepreka da počneš više uživati u onom što voliš.',
-      cijena: '3 399 kn',
+      cijena: '3 399,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/SM_galaxya71_black_front_240120_500x700_201001114110_500x700.png',
@@ -225,7 +354,7 @@ const phonesBase = {
       ime: 'Galaxy A51 Dual SIM Black',
       opis:
         'Infinity-O zaslon A51 uređaja optimizira vizualnu simetriju. Sada možeš gejmati, gledati, surfati i multitaskati bez prekida na zaslonu širokog formata dijagonale 6,5“ i FHD+ razlučivosti - a sve to omogućuje ti Super AMOLED tehnologija. Uživaj u iskustvu upotrebe pametnog telefona koji okvir zaslona svodi na najmanju moguću mjeru i daje najviše zaslonskog prostora po svakom inču.',
-      cijena: '2 549 kn',
+      cijena: '2 549,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/Samsung_galaxya51_black_front_080120_500x700_201001114341_500x700.png',
@@ -246,7 +375,7 @@ const phonesBase = {
       ime: 'Galaxy A31 Dual SIM Black',
       opis:
         'Infinity-O zaslon A51 uređaja optimizira vizualnu simetriju. Sada možeš gejmati, gledati, surfati i multitaskati bez prekida na zaslonu širokog formata dijagonale 6,5“ i FHD+ razlučivosti - a sve to omogućuje ti Super AMOLED tehnologija. Uživaj u iskustvu upotrebe pametnog telefona koji okvir zaslona svodi na najmanju moguću mjeru i daje najviše zaslonskog prostora po svakom inču.',
-      cijena: '2 199 kn',
+      cijena: '2 199,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/08_galaxya31_black_frontcopy_201005110726_500x700.png',
@@ -268,7 +397,7 @@ const phonesBase = {
       ime: 'Galaxy A10 Dual SIM Black',
       opis:
         '6,2 inča HD+ zaslona na mobitelu koji voliš gledati. Bez obzira voliš li humoristične serije ili MMORPG igre, Infinity-V zaslon na Galaxy A10 mobitelu mijenja način na koji ih doživljavaš i stavlja te usred akcije. Provjeri kamo će te doživljaj odvesti na v-cut zaslonu.',
-      cijena: '1 099 kn',
+      cijena: '1 099,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/SM_Galaxy_A10__0000_front_200826100032_500x700.png',
@@ -291,7 +420,7 @@ const phonesBase = {
       ime: 'P40 Pro+ Dual SIM Black',
       opis:
         'Govoriš sam s Ultra Vision Leica peterostrukom kamerom snimajući fotografije i videozapise u bilo koje vrijeme i bilo gdje. Revoluciraj svoje iskustvo brzine i snage uz vrhunski Kirin 990 5G čipset. Inovativni dizajn nadograđuje tvoju vizualnu zabavu i ergonomsku udobnost. Istraži sada i budućnost uz HUAWEI P40 Pro +.',
-      cijena: '5 449 kn',
+      cijena: '5 449,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/HuaweiP40ProBLACK_201001112036_500x700.png',
@@ -312,7 +441,7 @@ const phonesBase = {
       ime: 'P30 Dual SIM Black',
       opis:
         'Jasnije, šire, bliže. Istraži svijet iz nove perspektive. Pronađi još iznenađenja u svijetu koji te okružuje i pretvori ih u dragocjene uspomene. HUAWEI P30 pomiče granice mobilne fotografije.',
-      cijena: '3 449 kn',
+      cijena: '3 449,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/HuaweiP30crni_201001111332_500x700.png',
@@ -332,7 +461,7 @@ const phonesBase = {
       ime: 'P40 Lite Dual SIM Midnight Black',
       opis:
         'Svijet je pun ljepota koje čekaju da ih otkriješ. S 4 stražnje kamere, HUAWEI P40 lite slika šire, jasnije i bliže nego što si ikad mogao zamisliti. Snimaj kinematografske portrete s bokeh objektivom, a zatim se prebaci na makro objektiv i snimi super detaljne fotografije prirodnih ljepota. Imaš sve mogućnosti na dlanu koristeći isti telefon. Osjećaj je kao da imaš profesionalni foto studio u džepu.',
-      cijena: '1 999 kn',
+      cijena: '1 999,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/p40liteblack_200522103324_500x700.png',
@@ -353,7 +482,7 @@ const phonesBase = {
       ime: 'P Smart Z Dual SIM Blue',
       opis:
         'Jedinstveni 6.59-inčni HUAWEI Ultra FullView zaslon pruža iznimno široku sliku. Iskusi neograničenu zabavu tijekom gledanja videozapisa, igranja igara ili čitanja online knjiga, a sve na zaslonu koji gotovo da i nema okvir.',
-      cijena: '1 899 kn',
+      cijena: '1 899,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/psmartzblue_front_201001112158_500x700.png',
@@ -374,7 +503,7 @@ const phonesBase = {
       ime: 'Y6 2019 Dual SIM Black',
       opis:
         'Otkrij novi svijet bez granica na 6,09-inčnom Dewdrop HD+ zaslonu koji ima 87%-tni omjer ekrana u odnosu na kućište i omogućuje kvalitetniji pogled na videozapise, slike i najdraže e-knjige. HUAWEI Y6 2019 također blokira štetno plavo svjetlo i posjeduje TÜV Rheinland certifikat.',
-      cijena: '899 kn',
+      cijena: '899,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/HuaweiY62019black_front_1312_200204142656_500x700.png',
@@ -397,7 +526,7 @@ const phonesBase = {
       ime: '12 128GB Black',
       opis:
         '5G brzina. A14 Bionic, najbrži čip u pametnom telefonu. OLED zaslon od ruba do ruba. Keramički štit s četiri puta boljim performansama pada. I noćni način rada na svakoj kameri. iPhone 12 ima sve. Keramički štit. Jasno tvrđi od bilo kojeg stakla pametnog telefona.',
-      cijena: '8 649 kn',
+      cijena: '8 649,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/iPhone12_Black_500x700px_201111140531_500x700.png',
@@ -418,7 +547,7 @@ const phonesBase = {
       ime: 'XS Max 64 GB Space Gray',
       opis:
         'Najpametniji i najmoćniji čip za pametne telefone. Najnovija generacija Neural Enginea omogućuje fenomenalne doživljaje proširene stvarnosti, prekrasne portrete s kontrolom dubine i velike brzine pri svemu što radiš. Novi senzor pruža bolju kvalitetu slike, vjerniji prikaz boja i smanjuje šum na fotografijama snimljenim pri slabom svjetlu.',
-      cijena: '8 649 kn',
+      cijena: '8 649,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/iphoneXSmax_front_051020__0001_gray_201005135955_500x700.png',
@@ -439,7 +568,7 @@ const phonesBase = {
       ime: '11 64GB Green',
       opis:
         'Potpuno novi sustav dvojne kamere. Prebaci se sa širokokutnog fotkanja na ultraširokokutno. Redizajnirano sučelje koristi novu ultraširokokutnu kameru koja ti prikazuje što se događa izvan okvira — i omogućuje ti da to snimiš. Snimaj i uređuj videozapise jednostavno kao i fotografije. Najpopularnija kamera na svijetu dobila je posve novu perspektivu.',
-      cijena: '6 699 kn',
+      cijena: '6 699,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/iphoneXSmax_front_051020__0001_gray_201005135955_500x700.png',
@@ -460,7 +589,7 @@ const phonesBase = {
       ime: 'XR 64 GB Product Red',
       opis:
         'Kontrola dubine. Dubinsku oštrinu na portretima sada možeš prilagoditi i kada je fotografija već snimljena. Pametni HDR. Nove sekundarne sličice, brži senzor i moćni čip A12 Bionic izvlače više detalja iz svjetla i sjene na tvojim fotografijama.',
-      cijena: '5 699 kn',
+      cijena: '5 699,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/iphoneXSmax_front_051020__0001_gray_201005135955_500x700.png',
@@ -483,7 +612,7 @@ const phonesBase = {
       ime: 'Mi 10T Pro Dual SIM Lunar Silver',
       opis:
         'Xiaomi je odigrao istaknutu ulogu u definiranju segmenta kamera od 108MP, a Mi 10T Pro nastavlja to nasljeđe. Uz OIS i podršku za 8K video, Mi 10T Pro postavlja novi standard. Nadovezujući se na našu postojeću tehnologiju, uvrstili smo nove i dinamične značajke softvera za fotografiju, kao što su klonovi za fotografiju i video, načini duge ekspozicije, time-lapse selfie, tempirani prasak i dvostruki videozapis za povišenu kreativnost i privlačnost.',
-      cijena: '3 599 kn',
+      cijena: '3 599,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/iphoneXSmax_front_051020__0001_gray_201005135955_500x700.png',
@@ -505,7 +634,7 @@ const phonesBase = {
       ime: 'Redmi Note 9 Pro Dual SIM White',
       opis:
         'Redmi Note 9 Pro sadrži snažnu četverostruku kameru od 64MP, spremnu za svaku situaciju. Snimi vrlo jasne fotografije pomoću glavne kamere od 64MP. Napravi videozapise u kazališnom stilu izravno sa svog pametnog telefona s 4K rezolucijom. A selfiei su još uzbudljiviji uz selfie slow motion.',
-      cijena: '3 599 kn',
+      cijena: '3 599,00 kn',
       foto: {
         prednja:
           'https://www.tele2.hr/upload/iphoneXSmax_front_051020__0001_gray_201005135955_500x700.png',

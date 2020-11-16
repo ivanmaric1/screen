@@ -1,7 +1,13 @@
 .Phones {
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 1rem 0rem;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 18% 25% 25% 25%;
+  grid-template-columns: 18% 80%;
+  justify-content: flex-start;
+
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import './BannerRight.scss';
+import banner from '../img/Banner-right.png';
 
 const BannerRight = () => {
   return (
     <div className="BannerRight">
-      <h1>wefe</h1>
+      <img src={banner} alt="" />
     </div>
   );
 };
