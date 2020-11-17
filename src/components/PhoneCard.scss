@@ -1,19 +1,20 @@
 .PhoneCard {
-  width: 80%;
+  width: 75%;
   height: 100%;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-content: center;
-
   font-family: var(--main-font);
+  cursor: pointer;
+
   &-name {
     font-size: 0.8rem;
     text-align: center;
   }
 
   &-img {
-    width: 250px;
+    width: 220px;
   }
 
   &-price {

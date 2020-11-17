@@ -14,6 +14,7 @@ interface State {
   mediumPrice: boolean;
   highPrice: boolean;
   megaPrice: boolean;
+  showAllPrice: boolean;
 }
 
 class Phones extends Component<{}, State> {
@@ -25,10 +26,11 @@ class Phones extends Component<{}, State> {
       huawei: false,
       iphone: false,
       xiaomi: false,
-      lowPrice: true,
-      mediumPrice: true,
-      highPrice: true,
-      megaPrice: true,
+      lowPrice: false,
+      mediumPrice: false,
+      highPrice: false,
+      megaPrice: false,
+      showAllPrice: true,
     };
   }
 
@@ -43,6 +45,19 @@ class Phones extends Component<{}, State> {
   };
   setXiaomi = () => {
     this.setState({ xiaomi: true, showAll: false });
+  };
+
+  setLowPrice = () => {
+    this.setState({ lowPrice: true, showAllPrice: false });
+  };
+  setMediumPrice = () => {
+    this.setState({ mediumPrice: true, showAllPrice: false });
+  };
+  setHighPrice = () => {
+    this.setState({ highPrice: true, showAllPrice: false });
+  };
+  setMegaPrice = () => {
+    this.setState({ megaPrice: true, showAllPrice: false });
   };
 
   closeSamsung = () => {
@@ -77,31 +92,58 @@ class Phones extends Component<{}, State> {
     }
   };
 
-  setPrice = (price: string) => {
-    if (price === 'low') {
-      this.setState({ lowPrice: true });
-    } else if (price === 'medium') {
-      this.setState({ mediumPrice: true });
-    } else if (price === 'high') {
-      this.setState({ highPrice: true });
-    } else if (price === 'mega') {
-      this.setState({ megaPrice: true });
+  closeLowPrice = () => {
+    if (
+      !this.state.mediumPrice &&
+      !this.state.highPrice &&
+      !this.state.megaPrice
+    ) {
+      this.setState({ lowPrice: false, showAllPrice: true });
+    } else {
+      this.setState({ lowPrice: false });
     }
   };
 
-  removePrice = (price: string) => {
-    if (price === 'low') {
-      this.setState({ lowPrice: false });
-    } else if (price === 'medium') {
+  closeMediumPrice = () => {
+    if (
+      !this.state.lowPrice &&
+      !this.state.highPrice &&
+      !this.state.megaPrice
+    ) {
+      this.setState({ mediumPrice: false, showAllPrice: true });
+    } else {
       this.setState({ mediumPrice: false });
-    } else if (price === 'high') {
+    }
+  };
+
+  closeHighPrice = () => {
+    if (
+      !this.state.mediumPrice &&
+      !this.state.lowPrice &&
+      !this.state.megaPrice
+    ) {
+      this.setState({ highPrice: false, showAllPrice: true });
+    } else {
       this.setState({ highPrice: false });
-    } else if (price === 'mega') {
+    }
+  };
+
+  closeMegaPrice = () => {
+    if (
+      !this.state.mediumPrice &&
+      !this.state.highPrice &&
+      !this.state.lowPrice
+    ) {
+      this.setState({ megaPrice: false, showAllPrice: true });
+    } else {
       this.setState({ megaPrice: false });
     }
   };
 
-  resetPrice = () => {};
+  openPhoneItem = (event: React.MouseEvent) => {
+    const target = event.target as any;
+    console.log(target.parentElement?.firstChild.innerHTML);
+  };
 
   renderCards = () => {
     let phonesCards: ReactElement[] = [];
@@ -115,6 +157,7 @@ class Phones extends Component<{}, State> {
             ime={phonesBase.samsung[phone].ime}
             foto={phonesBase.samsung[phone].foto.prednja}
             cijena={phonesBase.samsung[phone].cijena}
+            openPhoneItem={this.openPhoneItem}
           />
         );
       });
@@ -128,6 +171,7 @@ class Phones extends Component<{}, State> {
             ime={phonesBase.huawei[phone].ime}
             foto={phonesBase.huawei[phone].foto.prednja}
             cijena={phonesBase.huawei[phone].cijena}
+            openPhoneItem={this.openPhoneItem}
           />
         );
       });
@@ -141,6 +185,7 @@ class Phones extends Component<{}, State> {
             ime={phonesBase.iphone[phone].ime}
             foto={phonesBase.iphone[phone].foto.prednja}
             cijena={phonesBase.iphone[phone].cijena}
+            openPhoneItem={this.openPhoneItem}
           />
         );
       });
@@ -154,12 +199,13 @@ class Phones extends Component<{}, State> {
             ime={phonesBase.xiaomi[phone].ime}
             foto={phonesBase.xiaomi[phone].foto.prednja}
             cijena={phonesBase.xiaomi[phone].cijena}
+            openPhoneItem={this.openPhoneItem}
           />
         );
       });
     }
 
-    if (this.state.lowPrice) {
+    if (this.state.showAllPrice || this.state.lowPrice) {
       let filtered: any = phonesCards.filter((item) =>
         Number(
           item.props.cijena.slice(0, -6).replace(/\s/g, '') > 0 &&
@@ -168,7 +214,8 @@ class Phones extends Component<{}, State> {
       );
       filteredPhonesCards.push(filtered);
     }
-    if (this.state.mediumPrice) {
+
+    if (this.state.showAllPrice || this.state.mediumPrice) {
       let filtered: any = phonesCards.filter((item) =>
         Number(
           item.props.cijena.slice(0, -6).replace(/\s/g, '') > 1500 &&
@@ -177,7 +224,7 @@ class Phones extends Component<{}, State> {
       );
       filteredPhonesCards.push(filtered);
     }
-    if (this.state.highPrice) {
+    if (this.state.showAllPrice || this.state.highPrice) {
       let filtered: any = phonesCards.filter((item) =>
         Number(
           item.props.cijena.slice(0, -6).replace(/\s/g, '') > 3000 &&
@@ -186,7 +233,7 @@ class Phones extends Component<{}, State> {
       );
       filteredPhonesCards.push(filtered);
     }
-    if (this.state.megaPrice) {
+    if (this.state.showAllPrice || this.state.megaPrice) {
       let filtered: any = phonesCards.filter((item) =>
         Number(item.props.cijena.slice(0, -6).replace(/\s/g, '') > 6000)
       );
@@ -208,8 +255,14 @@ class Phones extends Component<{}, State> {
           closeHuawei={this.closeHuawei}
           closeIphone={this.closeIphone}
           closeXiaomi={this.closeXiaomi}
-          setPrice={this.setPrice}
-          removePrice={this.removePrice}
+          setLowPrice={this.setLowPrice}
+          setMediumPrice={this.setMediumPrice}
+          setHighPrice={this.setHighPrice}
+          setMegaPrice={this.setMegaPrice}
+          closeLowPrice={this.closeLowPrice}
+          closeMediumPrice={this.closeMediumPrice}
+          closeHighPrice={this.closeHighPrice}
+          closeMegaPrice={this.closeMegaPrice}
         />
         <div className="Phones-items">{this.renderCards()}</div>
       </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import './Filter.scss';
+import dostava from '../img/dostava.jpg';
+import jamstvo from '../img/jamstvo.jpg';
 
 interface Props {
   setSamsung: () => void;
@@ -10,8 +12,14 @@ interface Props {
   closeHuawei: () => void;
   closeIphone: () => void;
   closeXiaomi: () => void;
-  setPrice: (price: string) => void;
-  removePrice: (price: string) => void;
+  setLowPrice: () => void;
+  setMediumPrice: () => void;
+  setHighPrice: () => void;
+  setMegaPrice: () => void;
+  closeLowPrice: () => void;
+  closeMediumPrice: () => void;
+  closeHighPrice: () => void;
+  closeMegaPrice: () => void;
 }
 
 const Filter: React.FC<Props> = ({
@@ -23,8 +31,14 @@ const Filter: React.FC<Props> = ({
   closeHuawei,
   closeIphone,
   closeXiaomi,
-  setPrice,
-  removePrice,
+  setLowPrice,
+  setMediumPrice,
+  setHighPrice,
+  setMegaPrice,
+  closeLowPrice,
+  closeMediumPrice,
+  closeHighPrice,
+  closeMegaPrice,
 }) => {
   return (
     <div className="Filter">
@@ -65,7 +79,7 @@ const Filter: React.FC<Props> = ({
           type="checkbox"
           id="box-5"
           onChange={(e) =>
-            e.target.checked ? setPrice('mega') : removePrice('mega')
+            e.target.checked ? setMegaPrice() : closeMegaPrice()
           }
         />
         <label htmlFor="box-5">
@@ -76,7 +90,7 @@ const Filter: React.FC<Props> = ({
           type="checkbox"
           id="box-6"
           onChange={(e) =>
-            e.target.checked ? setPrice('high') : removePrice('high')
+            e.target.checked ? setHighPrice() : closeHighPrice()
           }
         />
         <label htmlFor="box-6">
@@ -87,7 +101,7 @@ const Filter: React.FC<Props> = ({
           type="checkbox"
           id="box-7"
           onChange={(e) =>
-            e.target.checked ? setPrice('medium') : removePrice('medium')
+            e.target.checked ? setMediumPrice() : closeMediumPrice()
           }
         />
         <label htmlFor="box-7">
@@ -98,13 +112,17 @@ const Filter: React.FC<Props> = ({
         <input
           type="checkbox"
           id="box-8"
-          onChange={(e) =>
-            e.target.checked ? setPrice('low') : removePrice('low')
-          }
+          onChange={(e) => (e.target.checked ? setLowPrice() : closeLowPrice())}
         />
         <label htmlFor="box-8">
           0kn<i className="fas fa-arrows-alt-h"></i>1500kn
         </label>
+      </div>
+      <div className="delivery">
+        <img src={dostava} alt="dostava" />
+      </div>
+      <div className="delivery">
+        <img src={jamstvo} alt="jamstvo" />
       </div>
     </div>
   );
