@@ -1,6 +1,7 @@
 .Phone {
   display: flex;
   font-family: var(--main-font);
+  animation: fade 1s ease-in-out;
 
   &-left {
     display: flex;
@@ -75,5 +76,14 @@
         padding: 0.2rem 0.5rem;
       }
     }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

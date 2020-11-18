@@ -6,12 +6,19 @@ interface Props {
   ime: string;
   foto: string;
   cijena: string;
+  brand: string;
   openPhoneItem: (event: React.MouseEvent) => void;
 }
 
-const PhoneCard: React.FC<Props> = ({ ime, foto, cijena, openPhoneItem }) => {
+const PhoneCard: React.FC<Props> = ({
+  ime,
+  foto,
+  cijena,
+  openPhoneItem,
+  brand,
+}) => {
   return (
-    <div className="PhoneCard">
+    <div className="PhoneCard" id={brand}>
       <p className="PhoneCard-name" onClick={(event) => openPhoneItem(event)}>
         {ime}
       </p>

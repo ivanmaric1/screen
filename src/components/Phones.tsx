@@ -5,6 +5,9 @@ import PhoneCard from './PhoneCard';
 import './Phones.scss';
 
 interface State {
+  renderItem: boolean;
+  itemBrand: string;
+  itemVersion: string;
   showAll: boolean;
   samsung: boolean;
   huawei: boolean;
@@ -21,6 +24,9 @@ class Phones extends Component<{}, State> {
   constructor(props: any) {
     super(props);
     this.state = {
+      renderItem: false,
+      itemBrand: '',
+      itemVersion: '',
       showAll: true,
       samsung: false,
       huawei: false,
@@ -142,7 +148,13 @@ class Phones extends Component<{}, State> {
 
   openPhoneItem = (event: React.MouseEvent) => {
     const target = event.target as any;
-    console.log(target.parentElement?.firstChild.innerHTML);
+    const brand = target.parentElement?.id;
+    const version = target.parentElement?.firstChild.innerHTML;
+    this.setState({ renderItem: true, itemBrand: brand, itemVersion: version });
+  };
+
+  closePhoneItem = () => {
+    this.setState({ renderItem: false });
   };
 
   renderCards = () => {
@@ -158,6 +170,7 @@ class Phones extends Component<{}, State> {
             foto={phonesBase.samsung[phone].foto.prednja}
             cijena={phonesBase.samsung[phone].cijena}
             openPhoneItem={this.openPhoneItem}
+            brand={'samsung'}
           />
         );
       });
@@ -172,6 +185,7 @@ class Phones extends Component<{}, State> {
             foto={phonesBase.huawei[phone].foto.prednja}
             cijena={phonesBase.huawei[phone].cijena}
             openPhoneItem={this.openPhoneItem}
+            brand={'huawei'}
           />
         );
       });
@@ -186,6 +200,7 @@ class Phones extends Component<{}, State> {
             foto={phonesBase.iphone[phone].foto.prednja}
             cijena={phonesBase.iphone[phone].cijena}
             openPhoneItem={this.openPhoneItem}
+            brand={'iphone'}
           />
         );
       });
@@ -200,6 +215,7 @@ class Phones extends Component<{}, State> {
             foto={phonesBase.xiaomi[phone].foto.prednja}
             cijena={phonesBase.xiaomi[phone].cijena}
             openPhoneItem={this.openPhoneItem}
+            brand={'xiaomi'}
           />
         );
       });
@@ -239,34 +255,63 @@ class Phones extends Component<{}, State> {
       );
       filteredPhonesCards.push(filtered);
     }
-
     return filteredPhonesCards;
   };
 
-  render() {
-    return (
-      <div className="Phones">
-        <Filter
-          setSamsung={this.setSamsung}
-          setHuawei={this.setHuawei}
-          setIphone={this.setIphone}
-          setXiaomi={this.setXiaomi}
-          closeSamsung={this.closeSamsung}
-          closeHuawei={this.closeHuawei}
-          closeIphone={this.closeIphone}
-          closeXiaomi={this.closeXiaomi}
-          setLowPrice={this.setLowPrice}
-          setMediumPrice={this.setMediumPrice}
-          setHighPrice={this.setHighPrice}
-          setMegaPrice={this.setMegaPrice}
-          closeLowPrice={this.closeLowPrice}
-          closeMediumPrice={this.closeMediumPrice}
-          closeHighPrice={this.closeHighPrice}
-          closeMegaPrice={this.closeMegaPrice}
+  renderContent = () => {
+    let returned: ReactElement[] = [];
+
+    if (!this.state.renderItem) {
+      returned.push(
+        <div className="Phones">
+          <Filter
+            setSamsung={this.setSamsung}
+            setHuawei={this.setHuawei}
+            setIphone={this.setIphone}
+            setXiaomi={this.setXiaomi}
+            closeSamsung={this.closeSamsung}
+            closeHuawei={this.closeHuawei}
+            closeIphone={this.closeIphone}
+            closeXiaomi={this.closeXiaomi}
+            setLowPrice={this.setLowPrice}
+            setMediumPrice={this.setMediumPrice}
+            setHighPrice={this.setHighPrice}
+            setMegaPrice={this.setMegaPrice}
+            closeLowPrice={this.closeLowPrice}
+            closeMediumPrice={this.closeMediumPrice}
+            closeHighPrice={this.closeHighPrice}
+            closeMegaPrice={this.closeMegaPrice}
+          />
+          <div className="Phones-items">{this.renderCards()}</div>
+        </div>
+      );
+    } else {
+      const brand = this.state.itemBrand;
+      const version = this.state.itemVersion;
+      let item = Object.keys(phonesBase[brand]);
+      let element;
+      for (let i = 0; i < item.length; i++) {
+        if (phonesBase[brand][item[i]].ime === version) {
+          element = phonesBase[brand][item[i]];
+        }
+      }
+      return (
+        <Phone
+          cijena={element.cijena}
+          foto={element.foto}
+          ime={element.ime}
+          opis={element.opis}
+          specifikacija={element.specifikacija}
+          closePhoneItem={this.closePhoneItem}
         />
-        <div className="Phones-items">{this.renderCards()}</div>
-      </div>
-    );
+      );
+    }
+
+    return returned;
+  };
+
+  render() {
+    return <>{this.renderContent()}</>;
   }
 }
 

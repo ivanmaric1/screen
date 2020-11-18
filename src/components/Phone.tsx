@@ -7,6 +7,7 @@ interface Mobitel {
   cijena: string;
   foto: Foto;
   specifikacija: Specifikacija;
+  closePhoneItem: () => void;
 }
 
 interface Foto {
@@ -30,6 +31,7 @@ const Phone: React.FC<Mobitel> = ({
   cijena,
   foto,
   specifikacija,
+  closePhoneItem,
 }) => {
   return (
     <div className="Phone">
@@ -39,7 +41,7 @@ const Phone: React.FC<Mobitel> = ({
           <img src={foto.zadnja} alt="slika_zadnja" />
         </div>
         <div className="Phone-left-price">
-          <button className="Phone-left-price-back ">
+          <button className="Phone-left-price-back " onClick={closePhoneItem}>
             <i className="fas fa-angle-double-left "></i>
             Natrag
           </button>
