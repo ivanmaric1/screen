@@ -1,4 +1,4 @@
-.PhoneCard {
+.WatchCard {
   width: 75%;
   height: 100%;
   padding: 0 1rem;
@@ -9,6 +9,8 @@
   margin: auto;
   font-family: var(--main-font);
   cursor: pointer;
+  background-color: #fff;
+  border: 1px solid var(--main-blue);
 
   &-name {
     font-size: 1rem;

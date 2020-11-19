@@ -704,6 +704,27 @@ const phonesBase = {
         baterija: 'Li-Ion, 2942 mAh',
       },
     },
+    7: {
+      ime: '7 32GB Black',
+      opis:
+        'Temeljitim redizajnom kućišta iPhone 7 je postao prvi iPhone koji se ne boji vode. Više se ne moraš bojati malo prskanja, prolijevanja ili pak prašine. Tipka Home na iPhoneu 7 napredna je čvrsta tipka dizajnirana da bude izdržljiva, responzivna i osjetljiva na dodir.',
+      cijena: '3 249,00 kn',
+      foto: {
+        prednja:
+          'https://www.tele2.hr/upload/iphone7_front_051020__0001_black_201005133218_500x700.png',
+        zadnja:
+          'https://www.tele2.hr/upload/iphone7_back_black_030419_190404142602_500x700.png',
+      },
+      specifikacija: {
+        dimenzija: '138,30x67,10x7,10 mm',
+        težina: '138 g',
+        zaslon: 'IPS kapacitativni dodirnik, 750x1334 px, 16M boja',
+        os: 'iOS',
+        memorija: 'do 32 GB, 2 GB RAM',
+        fotoaparat: '12 MP, autofokus',
+        baterija: 'Li-Ion, 1960 mAh',
+      },
+    },
   },
   xiaomi: {
     mi10: {
@@ -747,6 +768,27 @@ const phonesBase = {
         memorija: 'Radna (RAM): 6 GB; Interna (ROM): 128 GB',
         fotoaparat:
           '64 MP + 8 MP + 5 MP + 2 MP, autofokus, optički zoom, digitalni zoom',
+        baterija: 'Li-Po, 5020 mAh',
+      },
+    },
+    redmi9a: {
+      ime: 'Redmi 9A Dual SIM Black',
+      opis:
+        'Baterija velikog kapaciteta od 5000mAh napaja Redmi 9A kroz dane korištenja. Naš poseban postupak povećava životni vijek baterije Redmi 9A kako bi se omogućilo optimalno punjenje i ponovno punjenje za godine pouzdane uporabe.',
+      cijena: '729,00 kn',
+      foto: {
+        prednja:
+          'https://www.tele2.hr/upload/Xiaomi__0000_RedmiC3LVFRONT_200715124135_500x700.png',
+        zadnja:
+          'https://www.tele2.hr/upload/Xiaomi__0001_RedmiC3LVBACK_200715124215_500x700.png',
+      },
+      specifikacija: {
+        dimenzija: '164,90x77,07x9 mm',
+        težina: '194 g',
+        zaslon: 'IPS LCD 6.53", 720x1600 px',
+        os: 'Android 10',
+        memorija: 'Radna (RAM): 2 GB; Interna (ROM): 32 GB',
+        fotoaparat: '13 MP, autofokus, optički zoom, digitalni zoom',
         baterija: 'Li-Po, 5020 mAh',
       },
     },
