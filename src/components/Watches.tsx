@@ -81,135 +81,115 @@ class Watches extends Component<{}, State> {
 export default Watches;
 
 const watchesBase = {
-  '5s': {
-    ime: 'Garmin fenix 5S Sapphire',
+  junior: {
+    ime: 'Myki Junior Exclusive dječji pametni sat - Pink',
     opis:
-      'Za ozbiljne sportaše i avanturiste koji žele postići više, a ne nositi više – fēnix 5S savršeno je rješenje. To je naš vrhunski multisport sat koji nudi sve performanse u lakšem, elegantnijem, kompaktnijem dizajnu. Budite bolji nego jučer uz napredne funkcije koje će znatno utjecati na napredak vježbanja kao što su mjerenje pulsa na zapešću¹, ugrađeni profili aktivnosti, funkcije osnovne navigacije i praćenje performansi koje vam omogućuju bolju kontrolu nad mjerenjem učinkovitosti i napretkom vježbanja.',
-    cijena: '4 999,00 kn',
+      'Neka vam dijete uvijek bude na oku, čak i kad nije u tvojoj blizini! Uz MyKi Smart Watch uvijek ćete znati gdje se dijete nalazi, a Myki Smart Watch tvoj će mališan s užitkom nositi. ',
+    cijena: '999,00 kn',
     foto: {
       prednja:
-        'https://img.polleosport.hr//cache/data/Garmin/fenix-5/fenix-5s-1-500x500.jpg',
+        'https://www.tele2.hr/upload/Mykisat__0002_Pink_201020091531_500x700.png',
     },
     specifikacija: {
-      dimenzija: '42.0 x 42.0 x 14.5 mm',
-      težina: 'Sa silikonskim remenom: 67,0 g',
-      zaslon:
-        'Živopisni zaslon rezolucije 218 x 218 piksela koji je uvijek uključen',
+      dimenzija: '56,20x14,30x38,70 mm',
+      težina: '	45 g',
+      zaslon: '	TFT LCD 1.4“ , 240x240 px',
       promjer: 'Promjer 27,94 mm (1,1 in)',
-      memorija: '64 MB; dostupno 54 MB',
-      trajanjeBaterije:
-        'Do 9 dana u načinu rada pametnog sata (ovisno o postavkama),do 14 sati u GPS načinu rada i do 35 sati u načinu rada za uštedu energije UltraTrac',
+      memorija: '	Memorija pohrane (GB): 512 MB; Radna memorija (RAM): 256 MB',
+      trajanjeBaterije: '	do 72 sati',
     },
   },
-  fenix6: {
-    ime: 'Garmin fenix 6 Pro Solar, Mineral Blue/Whitestone',
+  gt2Classic: {
+    ime: 'GT 2 Watch Classic',
     opis:
-      'Robustan, ali sofisticiran dizajn sadrži velik zaslon od 1,3 inča. Testiran je u skladu s američkim vojnim standardima za otpornost na toplinu, udarce i vodu. Uskladite izgled sa svojim stilom života odabirom okvira od titanija, nehrđajućeg čelika ili okvira obloženog DLC slojem.',
-    cijena: '6 999,00 kn',
+      'HUAWEI WATCH GT serija uvijek pomiče granice trajanja baterije pametnog sata. Uz HUAWEI samorazvojni nosivi čipset Kirin A1, dizajn dvostrukog čipa i inteligentnu tehnologiju za uštedu energije, sat možete bezbrižno koristiti danju i noću do 2 tjedna.',
+    cijena: '1 599,00 kn',
     foto: {
-      prednja:
-        'https://img.polleosport.hr//cache/data/garmin/2020/solar/fenix_6_pro_solar_mineral_blue_whitestone_1-450x450.png',
+      prednja: 'https://www.tele2.hr/upload/T0602145_200831165306_500x700.png',
     },
     specifikacija: {
-      dimenzija: '47 x 47 x 15.1 mm',
-      težina: 'Čelik: 85 g (samo kućište: 62 g)',
-      zaslon: '260 x 260 piksela',
-      promjer: 'Promjer od 33.02 mm, 1.3 inča',
-      memorija: '8 GB',
-      trajanjeBaterije: '14 dana',
-    },
-  },
-  suunto9: {
-    ime: 'Suunto 9 Baro, Copper',
-    opis:
-      'Suunto 9 je multisport GPS sat namijenjen sportašima koji traže najbolje od svog sportskog sata. Sustav inteligentnog upravljanja životnim vijekom baterije s pametnim podsjetnicima osigurava da vaš sat traje onoliko dugo koliko vam je potrebno. Suunto 9 napravljen je za dugo, naporno treniranje i utrke, te ekstremne avanture.',
-    cijena: '4 599,00 kn',
-    foto: {
-      prednja:
-        'https://img.polleosport.hr//cache/data/suunto/9-baro/suunto-9-g1-baro-copper-main-500x500.jpg',
-    },
-    specifikacija: {
-      dimenzija: '130-230 mm',
-      težina: '81 g / 2.86 oz',
-      zaslon: '320 x 300',
-      promjer: 'Promjer od 33.02 mm, 1.3 inča',
-      memorija: '32 GB',
-      trajanjeBaterije: 'Pametni sat: 14 dana / 16 dana uz solarno punjenje*',
-    },
-  },
-  gt2: {
-    ime: 'Huawei Watch GT 2 Pro, Night Black',
-    opis:
-      'Ovaj sat napravljen je od safirnog stakla i otporan je na ogrebotine, a neprimjetno se spaja s titanijskim kućištem za lagan i čvrst dizajn. Sjajna i koži prijateljska keramička poleđina osiguravaju ugodno nošenje. Sofisticiranom obradom, HUAWEI WATCH GT 2 Pro predstavlja profinjeni ukus uz savršenu ravnotežu umjetnosti i tehnologije.',
-    cijena: '2 399,00 kn',
-    foto: {
-      prednja:
-        'https://img.polleosport.hr//cache/data/huawei/watch_gt_2_pro/huawei_watch_gt_2_pro_sport_1-500x500.jpg',
-    },
-    specifikacija: {
-      dimenzija: '46,7 mm x 46,7 mm x 11,4 mm',
-      težina: 'Otprilike 52 g (bez remena)',
-      zaslon: '1,39-inčni AMOLED 454 x 454 HD',
+      dimenzija: '45,9 mm x 45,9mm x 10,7 mm',
+      težina: '41g ( bez remena )',
+      zaslon: '1,2-inčni AMOLED 454 x 454 HD',
       promjer: 'Promjer od 33.02 mm, 1.3 inča',
       memorija: '4 GB',
-      trajanjeBaterije: 'Trajanje baterije: 14 dana uobičajenog korištenja.',
+      trajanjeBaterije: 'trajanje 14 dana',
     },
   },
-  galaxy3: {
-    ime: 'Samsung Galaxy Watch 3',
+  gt2Elegant: {
+    ime: 'GT 2 Watch Elegant',
     opis:
-      'Sat koji se brine o Vama. Uz Galaxy Watch3 dobivate kombinaciju produktivnosti kao na pametnom telefonu i vodeće tehnologije za praćenje zdravlja u jednom premium i klasičnom uređaju. Naš najnapredniji Galaxy sat dosad, Galaxy Watch3 pomaže Vam da bez napora upravljate svojim životom i zdravljem – Vaša je dobrobit u Vašim rukama.',
-    cijena: '3 909,00 kn',
+      'HUAWEI WATCH GT serija uvijek pomiče granice trajanja baterije pametnog sata. Uz HUAWEI samorazvojni nosivi čipset Kirin A1, dizajn dvostrukog čipa i inteligentnu tehnologiju za uštedu energije, sat možete bezbrižno koristiti danju i noću do 2 tjedna.',
+    cijena: '1 799,00 kn',
     foto: {
-      prednja:
-        'https://img.polleosport.hr//cache/data/samsung/galaxy-watch-3-titanium/galaxy-watch-3-titanium-1-500x500.jpg',
+      prednja: 'https://www.tele2.hr/upload/T0602146_200831165231_500x700.png',
     },
     specifikacija: {
-      dimenzija: '45.0 x 46.2 x 11.1 mm',
-      težina: '43 g (bez narukvice)',
+      dimenzija: '45,9 mm x 45,9mm x 10,7 mm',
+      težina: '29g ( bez remena )',
+      zaslon: '1,2 inčni AMOLED 390 x 390 HD, AMOLED zaslon osjetljiv na dodir',
+      promjer: 'Promjer od 33.02 mm, 1.3 inča',
+      memorija: '4 GB',
+      trajanjeBaterije: ' 215 mAh, trajanje 7 dana',
+    },
+  },
+  gt2Pro: {
+    ime: 'GT2 Pro Watch Nebula Gray',
+    opis:
+      'Ovaj sat napravljen je od safirnog stakla i otporan je na ogrebotine, a neprimjetno se spaja s titanijskim kućištem za lagan i čvrst dizajn. Sjajna i koži prijateljska keramička poleđina osiguravaju ugodno nošenje. Sofisticiranom obradom, HUAWEI WATCH GT 2 Pro predstavlja profinjeni ukus uz savršenu ravnotežu umjetnosti i tehnologije.',
+    cijena: '2 249,00 kn',
+    foto: {
+      prednja:
+        'https://www.tele2.hr/upload/HuaweiGT2Pro_500x700px_201113111450_500x700.png',
+    },
+    specifikacija: {
+      dimenzija: '46,7 mm x 46,7mm x 11,4 mm',
+      težina: '52g ( bez remena )',
+      zaslon:
+        '1,39 inčni AMOLED 454 x 454 HD, AMOLED zaslon osjetljiv na dodir',
+      promjer: 'Promjer od 33.02 mm, 1.3 inča',
+      memorija: '4 GB',
+      trajanjeBaterije: '455 mAh, trajanje 14 dana',
+    },
+  },
+  galaxy3bronze: {
+    ime: 'Galaxy Watch3 41mm BT Bronze',
+    opis:
+      'Sat koji se brine o Vama. Uz Galaxy Watch3 dobivate kombinaciju produktivnosti kao na pametnom telefonu i vodeće tehnologije za praćenje zdravlja u jednom premium i klasičnom uređaju. Naš najnapredniji Galaxy sat dosad, Galaxy Watch3 pomaže Vam da bez napora upravljate svojim životom i zdravljem – Vaša je dobrobit u Vašim rukama.',
+    cijena: '2 699,00 kn',
+    foto: {
+      prednja:
+        'https://www.tele2.hr/upload/T0602248novo_200831142720_500x700.png',
+    },
+    specifikacija: {
+      dimenzija: ' 42.5 x 41.0 x 11.3 mm',
+      težina: '48,2',
       zaslon:
         'Super AMOLED kapacitivni zaslon osjetljiv na dodir, 16M boja, Always On Display',
       promjer: '45 mm',
       memorija: '8 GB',
-      trajanjeBaterije: 'Trajanje baterije: 14 dana uobičajenog korištenja.',
+      trajanjeBaterije:
+        'pojačano korištenje – do 43 sata; smanjeno korištenje do 120 sati',
     },
   },
-  vantage: {
-    ime: 'Polar Vantage V, Orange',
+  galaxy3black: {
+    ime: 'Galaxy Watch3 45mm BT Black',
     opis:
-      'Vantage V sa zaslonom u boji osjetljivim na dodir prati vašu dnevnu aktivnost 24/7, broji potrošene kalorije i korake, te vam pomoću Sleep Plus programa daje povratne informacije o kvaliteti spavanja. Polarov test kondicije na temelju mjerenja otkucaja srca na zapešću testira vašu kondiciju u svakom trenutku, na bilo kojem mjestu. Funkcija Stanje oporavka vam prikazuje vrijeme potrebno za oporavak prije sljedećeg vježbanja. ',
-    cijena: '2 999,00 kn',
+      'Jedini pametni sat s precizno rotirajućim okvirom za navigaciju po aplikacijama. Biraj između dviju veličina kućišta, 45 mm ili 41 mm, od kojih svako dolazi s dojmljivim brojčanikom. Dostupan u vrhunskoj mistično crnoj, mistično sivoj i mistično brončanoj izvedbi, njegov se elegantan dizajn istaknut je u jedinstvenom rotirajućem okviru za izgled koji te ne prestaje oduševljavati.',
+    cijena: '2 899,00 kn',
     foto: {
       prednja:
-        'https://img.polleosport.hr//cache/data/polar/vantage-v/polar-vantage-v-orange-1-500x500.jpg',
+        'https://www.tele2.hr/upload/T0602249novo_200831142736_500x700.png',
     },
     specifikacija: {
-      dimenzija: '46 x 46 x 13 mm',
-      težina: '66 g',
-      zaslon: 'Veličina 3,048 cm (1,2 inča), razlučivost 240 x 240 piksela.',
-      promjer: '30 mm',
-      memorija: '8 GB',
-      trajanjeBaterije: 'Trajanje baterije do 30 sati u načinu vježbanja',
-    },
-  },
-  polar: {
-    ime: 'Polar Ignite, Pink/Rose',
-    opis:
-      'Polar Ignite je vodootporan fitnes sat sa naprednim mjeračem otkucaja srca na zapešću i integriranim sistemom GPS. Taj pratitelj vježbanja vam pruža sve informacije potrebne za poboljšanje vaše izvedbe i pomaže vam da pomaknete granice na pravi način. Polar Ignite prikazuje informacije o vašim  dnevnim aktivnostima i usmjerava vas prema uravnoteženom načinu života.',
-    cijena: '1 599,00 kn',
-    foto: {
-      prednja:
-        'https://img.polleosport.hr//cache/data/polar/ignite/polar-ignite-pink-rosegold-1-500x500.jpg',
-    },
-    specifikacija: {
-      dimenzija: '43 × 43 × 8,5 mm',
-      težina: '35 g (sa remenom), 21 g (bez remena)',
+      dimenzija: ' 42.5 x 41.0 x 11.3 mm',
+      težina: '48,2',
       zaslon:
-        'Zaslon u boji na dodir (IPS TFT) sa senzorom ambijentalne svijetlosti (ALS), razlučivost 240 × 204. ',
-      promjer: '30 mm',
+        'Super AMOLED kapacitivni zaslon osjetljiv na dodir, 16M boja, Always On Display',
+      promjer: '45 mm',
       memorija: '8 GB',
       trajanjeBaterije:
-        'Trajanje baterije do 17 u načinu vježbanja (GPS i otkucaji srca na zapešču), do 5 dana u načinu rada sa neprekidnim praćenjem broja otkucaja srca na zapešću.',
+        'pojačano korištenje – do 43 sata; smanjeno korištenje do 120 sati',
     },
   },
 };

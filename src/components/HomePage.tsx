@@ -9,7 +9,7 @@ import Sale from './Sale';
 import Info from './Info';
 import Delivery from './Delivery';
 import Contact from './Contact';
-
+import Footer from './Footer';
 import './HomePage.scss';
 
 interface state {
@@ -54,7 +54,7 @@ class HomePage extends Component<{}, state> {
   //staviti ternery ovdjer
   render() {
     return (
-      <div>
+      <div className="HomePage">
         <Header setPageToRender={this.setPageToRender} />
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
@@ -64,6 +64,7 @@ class HomePage extends Component<{}, state> {
             this.renderContent()
           )}
         </div>
+        <Footer />
       </div>
     );
   }

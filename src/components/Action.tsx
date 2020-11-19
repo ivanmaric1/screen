@@ -1,10 +1,11 @@
 import React from 'react';
-import './Tablet.scss';
+import './Action.scss';
 
 interface Mobitel {
   ime: any;
   opis: string;
-  cijena: string;
+  cijenaStara: string;
+  cijenaNova: string;
   foto: { prednja: string };
   specifikacija: Specifikacija;
   closePhoneItem: () => void;
@@ -14,15 +15,17 @@ interface Specifikacija {
   dimenzija: string;
   težina: string;
   zaslon: string;
-  promjer: string;
+  os: string;
   memorija: string;
-  trajanjeBaterije: string;
+  fotoaparat: string;
+  baterija: string;
 }
 
-const Watch: React.FC<Mobitel> = ({
+const Tablet: React.FC<Mobitel> = ({
   ime,
   opis,
-  cijena,
+  cijenaStara,
+  cijenaNova,
   foto,
   specifikacija,
   closePhoneItem,
@@ -38,7 +41,10 @@ const Watch: React.FC<Mobitel> = ({
             <i className="fas fa-angle-double-left "></i>
             Natrag
           </button>
-          <button className="Tablet-left-price-amount">{cijena}</button>
+          <button className="Tablet-left-price-amount old">
+            {cijenaStara}
+          </button>
+          <button className="Tablet-left-price-amount new">{cijenaNova}</button>
           <button className="Tablet-left-price-buy">
             Dodaj u košaricu <i className="fas fa-shopping-cart fa-lg"></i>
           </button>
@@ -64,16 +70,20 @@ const Watch: React.FC<Mobitel> = ({
               <td>{specifikacija.zaslon}</td>
             </tr>
             <tr>
-              <td>Promjer</td>
-              <td>{specifikacija.promjer}</td>
+              <td>OS</td>
+              <td>{specifikacija.os}</td>
             </tr>
             <tr>
               <td>Memorija</td>
               <td>{specifikacija.memorija}</td>
             </tr>
             <tr>
+              <td>Fotoaparat</td>
+              <td>{specifikacija.fotoaparat}</td>
+            </tr>
+            <tr>
               <td>Baterija</td>
-              <td>{specifikacija.trajanjeBaterije}</td>
+              <td>{specifikacija.baterija}</td>
             </tr>
           </table>
         </div>
@@ -82,4 +92,4 @@ const Watch: React.FC<Mobitel> = ({
   );
 };
 
-export default Watch;
+export default Tablet;

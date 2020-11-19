@@ -6,20 +6,11 @@ interface Mobitel {
   opis: string;
   cijena: string;
   foto: { prednja: string };
-  specifikacija: Specifikacija;
+  specifikacija: string;
   closePhoneItem: () => void;
 }
 
-interface Specifikacija {
-  dimenzija: string;
-  težina: string;
-  zaslon: string;
-  promjer: string;
-  memorija: string;
-  trajanjeBaterije: string;
-}
-
-const Watch: React.FC<Mobitel> = ({
+const AdditionalEq: React.FC<Mobitel> = ({
   ime,
   opis,
   cijena,
@@ -52,28 +43,7 @@ const Watch: React.FC<Mobitel> = ({
         <div className="Tablet-right-table">
           <table>
             <tr>
-              <td>Dimenzija</td>
-              <td>{specifikacija.dimenzija}</td>
-            </tr>
-            <tr>
-              <td>Težina</td>
-              <td>{specifikacija.težina}</td>
-            </tr>
-            <tr>
-              <td>Zaslon</td>
-              <td>{specifikacija.zaslon}</td>
-            </tr>
-            <tr>
-              <td>Promjer</td>
-              <td>{specifikacija.promjer}</td>
-            </tr>
-            <tr>
-              <td>Memorija</td>
-              <td>{specifikacija.memorija}</td>
-            </tr>
-            <tr>
-              <td>Baterija</td>
-              <td>{specifikacija.trajanjeBaterije}</td>
+              <td>{specifikacija}</td>
             </tr>
           </table>
         </div>
@@ -82,4 +52,4 @@ const Watch: React.FC<Mobitel> = ({
   );
 };
 
-export default Watch;
+export default AdditionalEq;

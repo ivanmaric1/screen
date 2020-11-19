@@ -1,0 +1,94 @@
+.Phone {
+  display: flex;
+  font-family: var(--main-font);
+  animation: fade 1s ease-in-out;
+
+  &-left {
+    display: flex;
+    flex-direction: column;
+    &-img {
+      display: flex;
+
+      img {
+        transition: all 0.3s ease-in;
+        height: 380px;
+
+        &:hover {
+          transform: scale(1.5);
+          overflow: hidden;
+        }
+      }
+    }
+    &-price {
+      align-self: center;
+      display: flex;
+
+      &-back,
+      &-buy {
+        font-size: 0.8rem;
+        color: var(--main-blue);
+        border: 2px solid var(--main-blue);
+        align-self: center;
+        background-color: transparent;
+        padding: 1rem;
+        font-family: var(--main-font);
+        cursor: pointer;
+
+        &:hover {
+          border: 2px solid var(--hover-red);
+          color: var(--hover-red);
+        }
+      }
+
+      &-amount {
+        font-family: var(--main-font);
+        border: 2px solid var(--main-blue);
+        background-color: var(--hover-red);
+        color: var(--main-blue);
+        font-weight: 700;
+        margin: 1rem;
+        padding: 1rem;
+      }
+    }
+  }
+
+  &-right {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-name {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    &-description {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    &-table {
+      font-weight: 500;
+      font-size: 0.9rem;
+      td {
+        padding: 0.2rem 0.5rem;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.old {
+  text-decoration: line-through;
+  background-color: transparent;
+}

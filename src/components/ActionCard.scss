@@ -1,4 +1,4 @@
-.WatchCard {
+.ActionCard {
   width: 75%;
   height: 100%;
   padding: 0 1rem;
@@ -22,5 +22,14 @@
 
   &-price {
     text-align: center;
+
+    &-old {
+      text-decoration: line-through;
+    }
+    &-new {
+      background-color: var(--hover-red);
+      padding: 0.2rem;
+      border: 1px solid var(--main-blue);
+    }
   }
 }

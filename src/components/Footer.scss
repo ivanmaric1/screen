@@ -1,0 +1,30 @@
+.Footer {
+  box-sizing: border-box;
+  width: 75vw;
+  height: 270px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-blue);
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 2px 2px var(--main-blue);
+  color: var(--main-gold);
+  font-family: var(--main-font);
+  display: flex;
+  font-size: 0.8rem;
+
+  &-left {
+    flex: 1;
+    padding: 2rem;
+  }
+  &-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+
+    img {
+      height: 150px;
+      box-shadow: 0px 0px 2px 2px var(--main-gold);
+    }
+  }
+}
