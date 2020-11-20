@@ -10,7 +10,7 @@ import Info from './Info';
 import Delivery from './Delivery';
 import Contact from './Contact';
 import Login from './Login';
-import Profile from './Profile';
+import ProfileForm from './ProfileForm';
 import Footer from './Footer';
 import './HomePage.scss';
 
@@ -30,13 +30,17 @@ class HomePage extends Component<{}, state> {
     this.setState({ renderPage: page });
   };
 
+  goHome = () => {
+    this.setState({ renderPage: 'phones' });
+  };
+
   addToBasket = (event: Event) => {
     console.log(event);
   };
 
   renderContent = (): React.ReactNode => {
     if (this.state.renderPage === 'tablets') {
-      return <Tablets />;
+      return <Tablets addToBasket={this.addToBasket} />;
     }
     if (this.state.renderPage === 'watches') {
       return <Watches />;
@@ -60,14 +64,14 @@ class HomePage extends Component<{}, state> {
       return <Login />;
     }
     if (this.state.renderPage === 'profil') {
-      return <Profile handleLogout={() => console.log(1)} user="wfe" />;
+      return <ProfileForm handleLogout={() => console.log(1)} user="wfe" />;
     }
   };
   //staviti ternery ovdjer
   render() {
     return (
       <div className="HomePage">
-        <Header setPageToRender={this.setPageToRender} />
+        <Header setPageToRender={this.setPageToRender} goHome={this.goHome} />
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
           {this.state.renderPage === 'phones' ? (

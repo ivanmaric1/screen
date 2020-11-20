@@ -1,13 +1,13 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 import fire from '../fire';
-import './Profile.scss';
+import './ProfileForm.scss';
 
 interface Props {
   handleLogout: () => void;
   user: string;
 }
 
-const Profile: React.FC<Props> = ({ handleLogout }) => {
+const ProfileForm: React.FC<Props> = ({ handleLogout, user }) => {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -38,12 +38,13 @@ const Profile: React.FC<Props> = ({ handleLogout }) => {
   };
 
   return (
-    <div className="Profile">
-      <form className="Profile-form">
-        <div className="Profile-form-left">
+    <div className="ProfileForm">
+      <form className="ProfileForm-form">
+        <div className="ProfileForm-form-left">
           <label>
             Ime
             <input
+              required
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -52,6 +53,7 @@ const Profile: React.FC<Props> = ({ handleLogout }) => {
           <label>
             Prezime
             <input
+              required
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
@@ -60,16 +62,18 @@ const Profile: React.FC<Props> = ({ handleLogout }) => {
           <label>
             Email
             <input
+              required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
         </div>
-        <div className="Profile-form-right">
+        <div className="ProfileForm-form-right">
           <label>
             Adresa
             <input
+              required
               type="text"
               value={adress}
               onChange={(e) => setAdress(e.target.value)}
@@ -78,6 +82,7 @@ const Profile: React.FC<Props> = ({ handleLogout }) => {
           <label>
             Datum rođenja
             <input
+              required
               type="date"
               value={dateOfBirth}
               onChange={(e) => setDateOfBirth(e.target.value)}
@@ -86,23 +91,28 @@ const Profile: React.FC<Props> = ({ handleLogout }) => {
           <label>
             OIB
             <input
+              required
               type="text"
               value={oib}
               onChange={(e) => setOib(e.target.value)}
             />
           </label>
         </div>
-        <div className="Profile-form-down">
-          <label>Želim primati obavijesti o novim proizvodima i akcijama</label>
-          <input type="checkbox" />
-          <label>
-            Prihvaćam i suglasan/-a sam s Općim uvjetima poslovanja i izjavom o
-            povjerljivosti i stariji/-a sam od 16 godina
-            <input type="checkbox" />
-          </label>
+        <div className="ProfileForm-form-down">
+          <div className="ProfileForm-form-down-box">
+            <input type="checkbox" required />
+            <label>
+              Želim primati obavijesti o novim proizvodima i akcijama
+            </label>
+            <input type="checkbox" required />
+            <label>
+              Prihvaćam i suglasan/-a sam s Općim uvjetima poslovanja i izjavom
+              o povjerljivosti i stariji/-a sam od 16 godina
+            </label>
+          </div>
         </div>
       </form>
-      <div className="Profile-btn">
+      <div className="ProfileForm-btn">
         <button onClick={(e) => createCustomer(e)}>Spremi podatke</button>
         <button onClick={handleLogout}>Odjavi se</button>
       </div>
@@ -110,4 +120,4 @@ const Profile: React.FC<Props> = ({ handleLogout }) => {
   );
 };
 
-export default Profile;
+export default ProfileForm;

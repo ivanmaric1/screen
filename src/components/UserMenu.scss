@@ -1,6 +1,8 @@
 @import './_parameters';
 
 .UserMenu {
+  display: flex;
+  justify-content: flex-end;
   &-list {
     list-style: none;
     display: flex;

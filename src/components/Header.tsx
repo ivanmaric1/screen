@@ -6,6 +6,7 @@ import './Header.scss';
 
 interface Props {
   setPageToRender: (page: string) => void;
+  goHome: () => void;
 }
 
 class Header extends React.Component<Props> {
@@ -14,11 +15,21 @@ class Header extends React.Component<Props> {
       <div className="Header">
         <div className="Header-logo">
           <a>
-            <img src={logo} alt="Shop Logo" className="Header-logo-pic" />
+            <img
+              src={logo}
+              alt="Shop Logo"
+              className="Header-logo-pic"
+              onClick={() => this.props.goHome()}
+            />
           </a>
           <div>
             <i className="fas fa-mobile-alt"></i>
-            <span className="Header-logo-tekst">WebShop for screens</span>
+            <span
+              className="Header-logo-tekst"
+              onClick={() => this.props.goHome()}
+            >
+              WebShop for screens
+            </span>
 
             <i className="fas fa-tablet-alt"></i>
           </div>

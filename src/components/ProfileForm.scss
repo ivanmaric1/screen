@@ -1,0 +1,100 @@
+.ProfileForm {
+  border: 1px solid var(--main-blue);
+  font-family: var(--main-font);
+  padding: 3rem;
+
+  &-form {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+
+    &-left,
+    &-right {
+      justify-self: stretch;
+      input {
+        display: block;
+        width: 100%;
+        height: 30px;
+        font-size: 1.3rem;
+        font-family: var(--main-font);
+      }
+    }
+    &-down {
+      grid-column: span 2;
+
+      &-box {
+        display: flex;
+        flex-direction: column;
+
+        input[type='checkbox'] {
+          display: none;
+        }
+
+        input[type='checkbox'] + label {
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 20px;
+          color: var(--main-blue);
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+        }
+
+        input[type='checkbox'] + label:last-child {
+          margin-bottom: 0;
+        }
+
+        input[type='checkbox'] + label:before {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid var(--main-blue);
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0.6;
+          -webkit-transition: all 0.12s, border-color 0.08s;
+          transition: all 0.12s, border-color 0.08s;
+        }
+
+        input[type='checkbox']:checked + label:before {
+          width: 10px;
+          top: -5px;
+          left: 5px;
+          border-radius: 0;
+          opacity: 1;
+          border-top-color: transparent;
+          border-left-color: transparent;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  &-btn {
+    display: flex;
+    justify-content: center;
+    button {
+      font-size: 0.8rem;
+      color: var(--main-blue);
+      border: 2px solid var(--main-blue);
+      align-self: center;
+      background-color: transparent;
+      padding: 1rem;
+      font-family: var(--main-font);
+      cursor: pointer;
+      margin: 0rem 1rem;
+
+      &:hover {
+        border: 2px solid var(--hover-red);
+        color: var(--hover-red);
+      }
+    }
+  }
+}

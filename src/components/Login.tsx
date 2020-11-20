@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Profile from './Profile';
+import ProfileForm from './ProfileForm';
+import ProfileData from './ProfileData';
 import LoginForm from './LoginForm';
 import fire from '../fire';
 
@@ -10,6 +11,33 @@ const Login = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState('');
+  const [hasProfile, setHasProfile] = useState(false);
+
+  useEffect(() => {
+    const database = fire.database();
+    const ref = database.ref('users/');
+    ref.on('value', gotData, errData);
+  }, []);
+
+  const gotData = (data: any) => {
+    let users = data.val();
+    let emails = [];
+    if (users !== null) {
+      let keys = Object.keys(users);
+      for (let i = 0; i < keys.length; i++) {
+        emails.push(users[keys[i]].Email);
+      }
+    }
+
+    let userek: any = user;
+    if (emails.filter((user) => user === userek.email)) {
+      setHasProfile(true);
+    }
+  };
+
+  const errData = (err: any) => {
+    console.log(err);
+  };
 
   const clearInputs = () => {
     setEmail('');
@@ -77,10 +105,18 @@ const Login = () => {
     authListener();
   }, []);
 
+  const renderProfile = () => {
+    if (hasProfile) {
+      return <ProfileData />;
+    } else {
+      return <ProfileForm handleLogout={handleLogout} user={email} />;
+    }
+  };
+
   return (
     <>
       {user ? (
-        <Profile handleLogout={handleLogout} user={email} />
+        renderProfile()
       ) : (
         <LoginForm
           email={email}
