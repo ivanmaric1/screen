@@ -8,7 +8,11 @@ interface State {
   itemVersion: string;
 }
 
-class Tablets extends Component<{}, State> {
+interface Props {
+  addToBasket?: (event: MouseEvent) => void;
+}
+
+class Tablets extends Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {

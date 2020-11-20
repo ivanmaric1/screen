@@ -9,6 +9,8 @@ import Sale from './Sale';
 import Info from './Info';
 import Delivery from './Delivery';
 import Contact from './Contact';
+import Login from './Login';
+import Profile from './Profile';
 import Footer from './Footer';
 import './HomePage.scss';
 
@@ -26,6 +28,10 @@ class HomePage extends Component<{}, state> {
 
   setPageToRender = (page: string): void => {
     this.setState({ renderPage: page });
+  };
+
+  addToBasket = (event: Event) => {
+    console.log(event);
   };
 
   renderContent = (): React.ReactNode => {
@@ -49,6 +55,12 @@ class HomePage extends Component<{}, state> {
     }
     if (this.state.renderPage === 'contact') {
       return <Contact />;
+    }
+    if (this.state.renderPage === 'login') {
+      return <Login />;
+    }
+    if (this.state.renderPage === 'profil') {
+      return <Profile handleLogout={() => console.log(1)} user="wfe" />;
     }
   };
   //staviti ternery ovdjer

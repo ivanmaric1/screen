@@ -1,0 +1,77 @@
+.Login {
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  margin: 3.1rem auto;
+  padding: 2rem 3rem;
+  font-family: var(--main-font);
+  color: var(--main-blue);
+  border: 1px solid var(--main-blue);
+  box-shadow: 0px 0px 8px 4px var(--main-blue);
+  font-size: 1rem;
+
+  &-logo {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-family: var(--main-font);
+    font-size: 1.1rem;
+    color: var(--main-blue);
+
+    &:active,
+    &:focus {
+      outline-color: var(--main-blue);
+    }
+  }
+
+  .Login-btn {
+    margin: 1rem 0;
+    padding: 0.2rem 0rem;
+    width: 100%;
+    font-size: 1.3rem;
+    font-family: var(--main-font);
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  span {
+    color: var(--hover-red);
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+}
+
+.errorMessage {
+  font-size: 0.8rem;
+  color: var(--hover-red);
+}
+
+@media screen and (max-width: 640px) {
+  .Login {
+    width: 300px;
+    height: 400px;
+    margin: 10vh auto;
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Login {
+    width: 350px;
+    height: 435px;
+    margin: 10vh auto;
+    padding: 2rem;
+  }
+}
