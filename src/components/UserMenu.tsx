@@ -26,12 +26,15 @@ class UserMenu extends Component<Props, State> {
             <a onClick={() => this.props.setPageToRender('contact')}>Kontakt</a>
           </li>
           <li>
-            <a onClick={() => this.props.setPageToRender('profil')}>Profil</a>
-          </li>
-          <li>
-            <a onClick={() => this.props.setPageToRender('login')}>
-              Prijava | Registracija
-            </a>
+            {localStorage.getItem('userData') ? (
+              <a onClick={() => this.props.setPageToRender('login')}>
+                Profil <i className="fas fa-user-alt"></i>
+              </a>
+            ) : (
+              <a onClick={() => this.props.setPageToRender('login')}>
+                Prijava | Registracija
+              </a>
+            )}
           </li>
         </ul>
       </div>

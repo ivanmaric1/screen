@@ -1,0 +1,31 @@
+.ProfileData {
+  border: 1px solid var(--main-blue);
+  font-family: var(--main-font);
+  padding: 3rem;
+  display: flex;
+
+  &-btn {
+    font-size: 0.8rem;
+    color: var(--main-blue);
+    border: 2px solid var(--main-blue);
+    align-self: center;
+    background-color: transparent;
+    padding: 1rem;
+    font-family: var(--main-font);
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid var(--hover-red);
+      color: var(--hover-red);
+    }
+  }
+}
+
+.ProfileData-loader {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  img {
+    width: 50px;
+  }
+}

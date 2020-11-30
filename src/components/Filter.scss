@@ -81,3 +81,24 @@
     padding: 0;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .Filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 800px) {
+  .BannerRight {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+}

@@ -10,12 +10,12 @@ import Info from './Info';
 import Delivery from './Delivery';
 import Contact from './Contact';
 import Login from './Login';
-import ProfileForm from './ProfileForm';
 import Footer from './Footer';
 import './HomePage.scss';
 
 interface state {
   renderPage: string;
+  loggedUser: string;
 }
 
 class HomePage extends Component<{}, state> {
@@ -23,6 +23,7 @@ class HomePage extends Component<{}, state> {
     super(props);
     this.state = {
       renderPage: 'phones',
+      loggedUser: '',
     };
   }
 
@@ -63,11 +64,8 @@ class HomePage extends Component<{}, state> {
     if (this.state.renderPage === 'login') {
       return <Login />;
     }
-    if (this.state.renderPage === 'profil') {
-      return <ProfileForm handleLogout={() => console.log(1)} user="wfe" />;
-    }
   };
-  //staviti ternery ovdjer
+
   render() {
     return (
       <div className="HomePage">

@@ -4,34 +4,42 @@ import ProfileData from './ProfileData';
 import LoginForm from './LoginForm';
 import fire from '../fire';
 
-const Login = () => {
+interface Props {}
+
+const Login: React.FC<Props> = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [hasAccount, setHasAccount] = useState('');
-  const [hasProfile, setHasProfile] = useState(false);
+  const [hasAccount, setHasAccount] = useState(false);
 
   useEffect(() => {
     const database = fire.database();
     const ref = database.ref('users/');
     ref.on('value', gotData, errData);
-  }, []);
+  });
 
   const gotData = (data: any) => {
     let users = data.val();
-    let emails = [];
+    let emails: string[] = [];
+    let userek: any = user;
+    localStorage.setItem('user', JSON.stringify(userek.email));
+    let current: any = localStorage.getItem('user');
+    let emajla = current.replace(/^"(.*)"$/, '$1');
+
     if (users !== null) {
       let keys = Object.keys(users);
       for (let i = 0; i < keys.length; i++) {
         emails.push(users[keys[i]].Email);
-      }
-    }
+        console.log(emails);
 
-    let userek: any = user;
-    if (emails.filter((user) => user === userek.email)) {
-      setHasProfile(true);
+        if (users[keys[i]].Email === emajla) {
+          console.log('Prangija');
+
+          localStorage.setItem('userData', JSON.stringify(users[keys[i]]));
+        }
+      }
     }
   };
 
@@ -87,7 +95,9 @@ const Login = () => {
   };
 
   const handleLogout = () => {
+    setUser('');
     fire.auth().signOut();
+    localStorage.removeItem('userData');
   };
 
   const authListener = () => {
@@ -106,10 +116,12 @@ const Login = () => {
   }, []);
 
   const renderProfile = () => {
-    if (hasProfile) {
-      return <ProfileData />;
-    } else {
-      return <ProfileForm handleLogout={handleLogout} user={email} />;
+    const user = localStorage.getItem('userData');
+    if (user) {
+      return <ProfileData handleLogout={handleLogout} />;
+    }
+    if (user === null) {
+      return <ProfileForm handleLogout={handleLogout} />;
     }
   };
 

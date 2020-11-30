@@ -1,30 +1,23 @@
-import React, { FormEvent, useState, useEffect } from 'react';
+import React, { FormEvent, useState } from 'react';
 import fire from '../fire';
 import './ProfileForm.scss';
 
 interface Props {
   handleLogout: () => void;
-  user: string;
 }
 
-const ProfileForm: React.FC<Props> = ({ handleLogout, user }) => {
+const ProfileForm: React.FC<Props> = ({ handleLogout }) => {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [adress, setAdress] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [oib, setOib] = useState('');
+  const [logged, setLogged] = useState(false);
   const userRef = fire.database().ref('users');
 
   const createCustomer = (e: FormEvent) => {
     e.preventDefault();
-
-    setName('');
-    setLastName('');
-    setEmail('');
-    setAdress('');
-    setDateOfBirth('');
-    setOib('');
 
     let newUser = userRef.push();
     newUser.set({
@@ -35,11 +28,29 @@ const ProfileForm: React.FC<Props> = ({ handleLogout, user }) => {
       DatumRođenja: dateOfBirth,
       OIB: oib,
     });
+
+    setName('');
+    setLastName('');
+    setEmail('');
+    setAdress('');
+    setDateOfBirth('');
+    setOib('');
+
+    setLogged(true);
+    localStorage.setItem('userData', email);
   };
 
-  return (
+  return logged ? (
+    <div className="Submitted">
+      <p>
+        Vaša registracija je uspješno obavljena!Zahvaljujemo na registraciji!
+      </p>
+      <br />
+      <p>Kliknite u izborniku na PROFIL!</p>
+    </div>
+  ) : (
     <div className="ProfileForm">
-      <form className="ProfileForm-form">
+      <form className="ProfileForm-form" onSubmit={(e) => createCustomer(e)}>
         <div className="ProfileForm-form-left">
           <label>
             Ime
@@ -98,24 +109,26 @@ const ProfileForm: React.FC<Props> = ({ handleLogout, user }) => {
             />
           </label>
         </div>
+
         <div className="ProfileForm-form-down">
-          <div className="ProfileForm-form-down-box">
-            <input type="checkbox" required />
-            <label>
+          <div className="boxes">
+            <input type="checkbox" id="box-1" />
+            <label htmlFor="box-1">
               Želim primati obavijesti o novim proizvodima i akcijama
             </label>
-            <input type="checkbox" required />
-            <label>
+
+            <input type="checkbox" id="box-2" />
+            <label htmlFor="box-2">
               Prihvaćam i suglasan/-a sam s Općim uvjetima poslovanja i izjavom
               o povjerljivosti i stariji/-a sam od 16 godina
             </label>
           </div>
         </div>
+        <div className="ProfileForm-btn">
+          <button type="submit">Spremi podatke</button>
+          <button onClick={() => handleLogout()}>Odjavi se</button>
+        </div>
       </form>
-      <div className="ProfileForm-btn">
-        <button onClick={(e) => createCustomer(e)}>Spremi podatke</button>
-        <button onClick={handleLogout}>Odjavi se</button>
-      </div>
     </div>
   );
 };
