@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/screen/static/css/main.c0ffa25b.chunk.css",
+    "main.js": "/screen/static/js/main.a6d2d4c0.chunk.js",
+    "main.js.map": "/screen/static/js/main.a6d2d4c0.chunk.js.map",
+    "runtime-main.js": "/screen/static/js/runtime-main.063ce760.js",
+    "runtime-main.js.map": "/screen/static/js/runtime-main.063ce760.js.map",
+    "static/js/2.5c083354.chunk.js": "/screen/static/js/2.5c083354.chunk.js",
+    "static/js/2.5c083354.chunk.js.map": "/screen/static/js/2.5c083354.chunk.js.map",
+    "index.html": "/screen/index.html",
+    "static/css/main.c0ffa25b.chunk.css.map": "/screen/static/css/main.c0ffa25b.chunk.css.map",
+    "static/js/2.5c083354.chunk.js.LICENSE.txt": "/screen/static/js/2.5c083354.chunk.js.LICENSE.txt",
+    "static/media/Banner-left.6d0c8a53.png": "/screen/static/media/Banner-left.6d0c8a53.png",
+    "static/media/Banner-right.5162ff70.png": "/screen/static/media/Banner-right.5162ff70.png",
+    "static/media/Logo.ce96fe12.png": "/screen/static/media/Logo.ce96fe12.png",
+    "static/media/dostava.812df806.jpg": "/screen/static/media/dostava.812df806.jpg",
+    "static/media/jamstvo.6b03ff28.jpg": "/screen/static/media/jamstvo.6b03ff28.jpg",
+    "static/media/loader.696cd6cc.gif": "/screen/static/media/loader.696cd6cc.gif",
+    "static/media/pay.f690b296.png": "/screen/static/media/pay.f690b296.png",
+    "static/media/paypal.82b7119a.png": "/screen/static/media/paypal.82b7119a.png",
+    "static/media/placanje.6e845568.jpg": "/screen/static/media/placanje.6e845568.jpg",
+    "static/media/protecto.83581b10.jpg": "/screen/static/media/protecto.83581b10.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.063ce760.js",
+    "static/js/2.5c083354.chunk.js",
+    "static/css/main.c0ffa25b.chunk.css",
+    "static/js/main.a6d2d4c0.chunk.js"
+  ]
+}
