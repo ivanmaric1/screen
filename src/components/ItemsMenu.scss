@@ -36,6 +36,14 @@
     width: 95vw;
 
     &-list {
+      width: 100%;
+
+      li {
+        padding: 0rem 1rem;
+      }
+    }
+
+    &-list {
       font-size: 0.6rem;
     }
   }
@@ -45,7 +53,16 @@
   .ItemsMenu {
     width: 95vw;
     &-list {
-      font-size: 0.6rem;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .ItemsMenu {
+    width: 95vw;
+    &-list {
+      font-size: 0.8rem;
     }
   }
 }

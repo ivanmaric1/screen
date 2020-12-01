@@ -10,7 +10,6 @@ const Contact = () => {
         <h2> SCREEN d.o.o.</h2>
         <h4> za trgovinu, promet i usluge </h4>
         <h4>
-          {' '}
           Sjedište: Trg Cristiana Ronalda 10, 10000 Zagreb Trgovački sud u
           Zagrebu, reg. 1-50280
         </h4>

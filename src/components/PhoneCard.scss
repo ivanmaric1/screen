@@ -24,3 +24,31 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .PhoneCard {
+    &-img {
+      width: 150px;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 800px) {
+  .PhoneCard {
+    &-img {
+      width: 170px;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  &-img {
+    width: 190px;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1400px) {
+  &-img {
+    width: 200px;
+  }
+}
