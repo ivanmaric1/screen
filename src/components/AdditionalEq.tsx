@@ -8,6 +8,7 @@ interface Mobitel {
   foto: { prednja: string };
   specifikacija: string;
   closePhoneItem: () => void;
+  addToCart: (ime: string, slika: string, cijena: string) => void;
 }
 
 const AdditionalEq: React.FC<Mobitel> = ({
@@ -17,6 +18,7 @@ const AdditionalEq: React.FC<Mobitel> = ({
   foto,
   specifikacija,
   closePhoneItem,
+  addToCart,
 }) => {
   return (
     <div className="Tablet">
@@ -30,7 +32,10 @@ const AdditionalEq: React.FC<Mobitel> = ({
             Natrag
           </button>
           <button className="Tablet-left-price-amount">{cijena}</button>
-          <button className="Tablet-left-price-buy">
+          <button
+            className="Tablet-left-price-buy"
+            onClick={() => addToCart(ime, foto.prednja, cijena)}
+          >
             Dodaj u košaricu <i className="fas fa-shopping-cart fa-lg"></i>
           </button>
         </div>

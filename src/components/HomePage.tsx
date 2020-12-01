@@ -9,6 +9,7 @@ import Sale from './Sale';
 import Info from './Info';
 import Delivery from './Delivery';
 import Contact from './Contact';
+import Cart from './Cart';
 import Login from './Login';
 import Footer from './Footer';
 import './HomePage.scss';
@@ -16,6 +17,7 @@ import './HomePage.scss';
 interface state {
   renderPage: string;
   loggedUser: string;
+  cart: any[];
 }
 
 class HomePage extends Component<{}, state> {
@@ -24,6 +26,7 @@ class HomePage extends Component<{}, state> {
     this.state = {
       renderPage: 'phones',
       loggedUser: '',
+      cart: [],
     };
   }
 
@@ -35,22 +38,33 @@ class HomePage extends Component<{}, state> {
     this.setState({ renderPage: 'phones' });
   };
 
-  addToBasket = (event: Event) => {
-    console.log(event);
+  addToCart = (ime: string, slika: string, cijena: string) => {
+    let item = {
+      ime: ime,
+      slika: slika,
+      cijena: cijena,
+    };
+    this.setState({ cart: [...this.state.cart, item] });
+    let cart = [...this.state.cart, item];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  };
+
+  clearCart = () => {
+    this.setState({ cart: [] });
   };
 
   renderContent = (): React.ReactNode => {
     if (this.state.renderPage === 'tablets') {
-      return <Tablets addToBasket={this.addToBasket} />;
+      return <Tablets addToCart={this.addToCart} />;
     }
     if (this.state.renderPage === 'watches') {
-      return <Watches />;
+      return <Watches addToCart={this.addToCart} />;
     }
     if (this.state.renderPage === 'additional') {
-      return <Additional />;
+      return <Additional addToCart={this.addToCart} />;
     }
     if (this.state.renderPage === 'sale') {
-      return <Sale />;
+      return <Sale addToCart={this.addToCart} />;
     }
     if (this.state.renderPage === 'info') {
       return <Info />;
@@ -64,6 +78,9 @@ class HomePage extends Component<{}, state> {
     if (this.state.renderPage === 'login') {
       return <Login />;
     }
+    if (this.state.renderPage === 'cart') {
+      return <Cart clearCart={this.clearCart} />;
+    }
   };
 
   render() {
@@ -73,7 +90,7 @@ class HomePage extends Component<{}, state> {
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
           {this.state.renderPage === 'phones' ? (
-            <Phones />
+            <Phones addToCart={this.addToCart} />
           ) : (
             this.renderContent()
           )}

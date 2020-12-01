@@ -8,7 +8,11 @@ interface State {
   itemVersion: string;
 }
 
-class Sale extends Component<{}, State> {
+interface Props {
+  addToCart: (ime: string, slika: string, cijena: string) => void;
+}
+
+class Sale extends Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -68,6 +72,7 @@ class Sale extends Component<{}, State> {
           opis={element.opis}
           specifikacija={element.specifikacija}
           closePhoneItem={this.closePhoneItem}
+          addToCart={this.props.addToCart}
         />
       );
     }

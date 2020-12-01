@@ -36,7 +36,7 @@ class Header extends React.Component<Props> {
         </div>
         <div className="Header-features">
           <UserMenu setPageToRender={this.props.setPageToRender} />
-          <ActionBar />
+          <ActionBar setPageToRender={this.props.setPageToRender} />
         </div>
       </div>
     );

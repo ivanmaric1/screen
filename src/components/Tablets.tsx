@@ -9,7 +9,7 @@ interface State {
 }
 
 interface Props {
-  addToBasket?: (event: MouseEvent) => void;
+  addToCart: (ime: string, slika: string, cijena: string) => void;
 }
 
 class Tablets extends Component<Props, State> {
@@ -70,6 +70,7 @@ class Tablets extends Component<Props, State> {
           opis={element.opis}
           specifikacija={element.specifikacija}
           closePhoneItem={this.closePhoneItem}
+          addToCart={this.props.addToCart}
         />
       );
     }

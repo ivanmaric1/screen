@@ -1,0 +1,66 @@
+.Cart {
+  border: 1px solid var(--main-blue);
+  font-family: var(--main-font);
+  padding: 1rem 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--main-blue);
+  }
+
+  hr {
+    margin: 1rem 0;
+  }
+
+  &-coupon {
+    width: 300px;
+    input {
+      width: 100px;
+      font-size: 0.8rem;
+      color: var(--main-blue);
+      border: 2px solid var(--main-blue);
+      background-color: transparent;
+      padding: 1rem;
+      font-family: var(--main-font);
+    }
+
+    &-form {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-total {
+    width: 400px;
+    &-settings {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &-btn {
+    font-size: 0.8rem;
+    color: var(--main-blue);
+    border: 2px solid var(--main-blue);
+    align-self: center;
+    background-color: transparent;
+    padding: 1rem;
+    font-family: var(--main-font);
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid var(--hover-red);
+      color: var(--hover-red);
+    }
+  }
+}
