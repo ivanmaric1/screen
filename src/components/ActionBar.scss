@@ -46,6 +46,16 @@
   &-cart {
     margin: 0rem 1rem;
     cursor: pointer;
+
+    span {
+      font-family: var(--main-font);
+      font-size: 1rem;
+      font-weight: 700;
+      color: red;
+      position: relative;
+      bottom: 20px;
+      right: 7px;
+    }
   }
 }
 

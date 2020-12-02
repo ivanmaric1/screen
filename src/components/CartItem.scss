@@ -1,9 +1,29 @@
 .CartItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
+  width: 100%;
   margin: auto;
+
+  table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+
+    .big {
+      width: 300px;
+    }
+
+    .medium {
+      width: 200px;
+    }
+
+    .small {
+      width: 100px;
+    }
+
+    td {
+      text-align: center;
+    }
+  }
 
   img {
     height: 90px;
@@ -16,10 +36,9 @@
 
     p {
       color: var(--main-blue);
-
-      i {
-        cursor: pointer;
-      }
     }
   }
+}
+i {
+  cursor: pointer;
 }

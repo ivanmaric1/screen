@@ -10,6 +10,11 @@ interface Props {
 export interface State {}
 
 class ActionBar extends Component<Props, State> {
+  renderNumberItems = () => {
+    let data: any = localStorage.getItem('cart');
+    let items = JSON.parse(data);
+    return items.length;
+  };
   render() {
     return (
       <div className="ActionBar">
@@ -28,6 +33,7 @@ class ActionBar extends Component<Props, State> {
             className="fas fa-shopping-cart fa-2x"
             onClick={() => this.props.setPageToRender('cart')}
           ></i>
+          <span>{this.renderNumberItems()}</span>
         </div>
       </div>
     );

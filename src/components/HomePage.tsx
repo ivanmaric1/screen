@@ -18,6 +18,7 @@ interface state {
   renderPage: string;
   loggedUser: string;
   cart: any[];
+  itemsInCart: number;
 }
 
 class HomePage extends Component<{}, state> {
@@ -27,6 +28,7 @@ class HomePage extends Component<{}, state> {
       renderPage: 'phones',
       loggedUser: '',
       cart: [],
+      itemsInCart: 0,
     };
   }
 
@@ -39,18 +41,49 @@ class HomePage extends Component<{}, state> {
   };
 
   addToCart = (ime: string, slika: string, cijena: string) => {
+    let data: any = localStorage.getItem('cart');
+    let items = JSON.parse(data);
     let item = {
       ime: ime,
       slika: slika,
       cijena: cijena,
+      količina: 1,
     };
-    this.setState({ cart: [...this.state.cart, item] });
-    let cart = [...this.state.cart, item];
-    localStorage.setItem('cart', JSON.stringify(cart));
+    if (items) {
+      let cart = [...items, item];
+      this.setState({
+        cart: cart,
+      });
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      let cart = [item];
+      this.setState({
+        cart: cart,
+      });
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
   };
 
   clearCart = () => {
     this.setState({ cart: [] });
+    localStorage.setItem('cart', 'null');
+  };
+
+  setCartNumberOfItems = (sum: number) => {
+    this.setState({ itemsInCart: sum });
+  };
+
+  deleteItemInCart = (e: React.MouseEvent) => {
+    const target = e.target as any;
+    const targetName =
+      target.parentElement.parentElement.firstChild.nextSibling.innerText;
+    let data: any = localStorage.getItem('cart');
+    let items = JSON.parse(data);
+    let renderItems = items.filter((item: any) => item.ime !== targetName);
+    localStorage.setItem('cart', JSON.stringify(renderItems));
+    this.setState({
+      cart: renderItems,
+    });
   };
 
   renderContent = (): React.ReactNode => {
@@ -79,7 +112,12 @@ class HomePage extends Component<{}, state> {
       return <Login />;
     }
     if (this.state.renderPage === 'cart') {
-      return <Cart clearCart={this.clearCart} />;
+      return (
+        <Cart
+          clearCart={this.clearCart}
+          deleteItemInCart={this.deleteItemInCart}
+        />
+      );
     }
   };
 
