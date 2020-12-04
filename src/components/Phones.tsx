@@ -22,6 +22,7 @@ interface State {
 
 interface Props {
   addToCart: (ime: string, slika: string, cijena: string) => void;
+  filter: string;
 }
 
 class Phones extends Component<Props, State> {
@@ -259,6 +260,17 @@ class Phones extends Component<Props, State> {
       );
       filteredPhonesCards.push(filtered);
     }
+
+    if (this.props.filter) {
+      let filtered: any = filteredPhonesCards.reduce(
+        (a: any, b: any) => [...a, ...b],
+        []
+      );
+      filteredPhonesCards = filtered.filter((item: any) =>
+        item.props.ime.toLowerCase().includes(this.props.filter.toLowerCase())
+      );
+    }
+
     return filteredPhonesCards;
   };
 

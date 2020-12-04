@@ -10,6 +10,7 @@ interface State {
 
 interface Props {
   addToCart: (ime: string, slika: string, cijena: string) => void;
+  filter: string;
 }
 
 class Watches extends Component<Props, State> {
@@ -35,6 +36,13 @@ class Watches extends Component<Props, State> {
         />
       );
     });
+
+    if (this.props.filter) {
+      phonesCards = phonesCards.filter((item: any) =>
+        item.props.ime.toLowerCase().includes(this.props.filter.toLowerCase())
+      );
+    }
+
     return phonesCards;
   };
 

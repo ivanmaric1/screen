@@ -19,15 +19,15 @@ const Cart: React.FC<Props> = ({ clearCart, deleteItemInCart }) => {
     let data: any = localStorage.getItem('cart');
     let items = JSON.parse(data);
 
-    for (let i = 0; i < items.lengh; i++) {
-      for (let j = 0; j < items.length; j++) {
-        console.log(i);
+    // for (let i = 0; i < items.lengh; i++) {
+    //   for (let j = 0; j < items.length; j++) {
+    //     console.log(i);
 
-        if (items[i].ime === items[j].ime) {
-          console.log(items[i]);
-        }
-      }
-    }
+    //     if (items[i].ime === items[j].ime) {
+    //       console.log(items[i]);
+    //     }
+    //   }
+    // }
 
     let prices: any = [];
     if (items) {

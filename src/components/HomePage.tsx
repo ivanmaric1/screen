@@ -94,16 +94,18 @@ class HomePage extends Component<{}, state> {
 
   renderContent = (): React.ReactNode => {
     if (this.state.renderPage === 'tablets') {
-      return <Tablets addToCart={this.addToCart} />;
+      return <Tablets addToCart={this.addToCart} filter={this.state.search} />;
     }
     if (this.state.renderPage === 'watches') {
-      return <Watches addToCart={this.addToCart} />;
+      return <Watches addToCart={this.addToCart} filter={this.state.search} />;
     }
     if (this.state.renderPage === 'additional') {
-      return <Additional addToCart={this.addToCart} />;
+      return (
+        <Additional addToCart={this.addToCart} filter={this.state.search} />
+      );
     }
     if (this.state.renderPage === 'sale') {
-      return <Sale addToCart={this.addToCart} />;
+      return <Sale addToCart={this.addToCart} filter={this.state.search} />;
     }
     if (this.state.renderPage === 'info') {
       return <Info />;
@@ -138,7 +140,7 @@ class HomePage extends Component<{}, state> {
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
           {this.state.renderPage === 'phones' ? (
-            <Phones addToCart={this.addToCart} />
+            <Phones addToCart={this.addToCart} filter={this.state.search} />
           ) : (
             this.renderContent()
           )}
