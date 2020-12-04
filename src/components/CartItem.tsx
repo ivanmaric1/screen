@@ -5,20 +5,36 @@ interface Props {
   ime: string;
   slika: string;
   cijena: string;
-  količina: number;
+  key: number;
+  setTotal: (num: number) => void;
   deleteItemInCart: (e: React.MouseEvent) => void;
-  updateNumberOfItems: (e: React.MouseEvent) => void;
 }
 
 const CartItem: React.FC<Props> = ({
   ime,
   slika,
   cijena,
-  količina,
+  setTotal,
   deleteItemInCart,
-  updateNumberOfItems,
 }) => {
   const [amount, setAmount] = useState(1);
+
+  const addItem = () => {
+    setTotal(amount + 1);
+    setAmount(amount + 1);
+  };
+  const subtractItem = () => {
+    setTotal(amount - 1);
+    setAmount(amount - 1);
+  };
+
+  const renderPrice = () => {
+    let price: any =
+      Number(cijena.replace(/ /g, '').slice(0, -5)) * amount + ',00';
+    localStorage.setItem('price', price);
+
+    return price;
+  };
 
   return (
     <div className="CartItem">
@@ -37,20 +53,20 @@ const CartItem: React.FC<Props> = ({
             <p>
               <i
                 className="fas fa-arrow-alt-circle-up"
-                onClick={(event) => updateNumberOfItems(event)}
+                onClick={() => addItem()}
               ></i>
             </p>
-            <p>{količina}</p>
+            <p>{amount}</p>
             <p>
               <i
                 className="fas fa-arrow-alt-circle-down"
-                onClick={() => setAmount(amount - 1)}
+                onClick={() => subtractItem()}
               ></i>
             </p>
           </div>
         </td>
         <td className="medium">
-          <p>{cijena}</p>
+          <div className="ramount">{renderPrice()}</div>
         </td>
         <td className="small">
           <i

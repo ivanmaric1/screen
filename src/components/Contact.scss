@@ -65,6 +65,16 @@
   }
 }
 
+.SendingData {
+  border: 1px solid var(--main-blue);
+  font-family: var(--main-font);
+  padding: 8rem 3rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
 @media screen and (max-width: 640px) {
   .Contact {
     flex-direction: column;

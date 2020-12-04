@@ -5,6 +5,7 @@ import './ActionBar.scss';
 
 interface Props {
   setPageToRender: (page: string) => void;
+  filter: (str: string) => void;
 }
 
 export interface State {}
@@ -12,8 +13,13 @@ export interface State {}
 class ActionBar extends Component<Props, State> {
   renderNumberItems = () => {
     let data: any = localStorage.getItem('cart');
+
     let items = JSON.parse(data);
-    return items.length;
+    if (items === null) {
+      items = 1;
+    }
+
+    return items.length ? items.length : 0;
   };
   render() {
     return (
@@ -25,6 +31,7 @@ class ActionBar extends Component<Props, State> {
             type="text"
             placeholder="Pretraži"
             className="ActionBar-search-field"
+            onChange={(e) => this.props.filter(e.target.value)}
           />
           <i className="fas fa-search fa-lg"></i>
         </div>

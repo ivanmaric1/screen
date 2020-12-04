@@ -7,6 +7,7 @@ import './Header.scss';
 interface Props {
   setPageToRender: (page: string) => void;
   goHome: () => void;
+  filter: (str: string) => void;
 }
 
 class Header extends React.Component<Props> {
@@ -36,7 +37,10 @@ class Header extends React.Component<Props> {
         </div>
         <div className="Header-features">
           <UserMenu setPageToRender={this.props.setPageToRender} />
-          <ActionBar setPageToRender={this.props.setPageToRender} />
+          <ActionBar
+            setPageToRender={this.props.setPageToRender}
+            filter={this.props.filter}
+          />
         </div>
       </div>
     );

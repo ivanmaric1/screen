@@ -19,6 +19,7 @@ interface state {
   loggedUser: string;
   cart: any[];
   itemsInCart: number;
+  search: string;
 }
 
 class HomePage extends Component<{}, state> {
@@ -29,8 +30,13 @@ class HomePage extends Component<{}, state> {
       loggedUser: '',
       cart: [],
       itemsInCart: 0,
+      search: '',
     };
   }
+
+  filter = (str: string) => {
+    this.setState({ search: str });
+  };
 
   setPageToRender = (page: string): void => {
     this.setState({ renderPage: page });
@@ -124,7 +130,11 @@ class HomePage extends Component<{}, state> {
   render() {
     return (
       <div className="HomePage">
-        <Header setPageToRender={this.setPageToRender} goHome={this.goHome} />
+        <Header
+          setPageToRender={this.setPageToRender}
+          goHome={this.goHome}
+          filter={this.filter}
+        />
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
           {this.state.renderPage === 'phones' ? (
