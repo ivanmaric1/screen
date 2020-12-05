@@ -3,6 +3,7 @@ import './UserMenu.scss';
 
 interface Props {
   setPageToRender: (page: string) => void;
+  hasProfile: boolean;
 }
 
 export interface State {}
@@ -26,7 +27,7 @@ class UserMenu extends Component<Props, State> {
             <a onClick={() => this.props.setPageToRender('contact')}>Kontakt</a>
           </li>
           <li>
-            {localStorage.getItem('userData') ? (
+            {this.props.hasProfile ? (
               <a onClick={() => this.props.setPageToRender('login')}>
                 Profil <i className="fas fa-user-alt"></i>
               </a>

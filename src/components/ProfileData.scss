@@ -1,8 +1,31 @@
 .ProfileData {
-  border: 1px solid var(--main-blue);
-  font-family: var(--main-font);
-  padding: 3rem;
+  padding: 1rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--main-blue);
+  font-family: var(--main-font);
+
+  h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &-content {
+    display: flex;
+
+    justify-content: center;
+  }
+
+  &-orders,
+  &-data {
+    border: 1px solid var(--main-blue);
+    padding: 2rem 1rem;
+    margin: 1rem;
+    width: 450px;
+    box-sizing: border-box;
+    justify-self: center;
+  }
 
   &-btn {
     font-size: 0.8rem;
@@ -11,8 +34,8 @@
     align-self: center;
     background-color: transparent;
     padding: 1rem;
-    font-family: var(--main-font);
     cursor: pointer;
+    margin: 2rem;
 
     &:hover {
       border: 2px solid var(--hover-red);

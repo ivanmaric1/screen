@@ -4,21 +4,28 @@ import ProfileData from './ProfileData';
 import LoginForm from './LoginForm';
 import fire from '../fire';
 
-interface Props {}
+interface Props {
+  setHasProfile: (has: boolean) => void;
+}
 
-const Login: React.FC<Props> = () => {
+const Login: React.FC<Props> = ({ setHasProfile }) => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
+  const [hasProfileData, setHasProfileData] = useState(false);
 
   useEffect(() => {
     const database = fire.database();
     const ref = database.ref('users/');
     ref.on('value', gotData, errData);
   });
+
+  useEffect(() => {
+    console.log('User loggeed!');
+  }, [user]);
 
   const gotData = (data: any) => {
     let users = data.val();
@@ -32,12 +39,9 @@ const Login: React.FC<Props> = () => {
       let keys = Object.keys(users);
       for (let i = 0; i < keys.length; i++) {
         emails.push(users[keys[i]].Email);
-        console.log(emails);
-
         if (users[keys[i]].Email === emajla) {
-          console.log('Prangija');
-
           localStorage.setItem('userData', JSON.stringify(users[keys[i]]));
+          setHasProfileData(true);
         }
       }
     }
@@ -74,6 +78,7 @@ const Login: React.FC<Props> = () => {
             break;
         }
       });
+    setHasProfile(true);
   };
 
   const handleSignup = () => {
@@ -92,12 +97,14 @@ const Login: React.FC<Props> = () => {
             break;
         }
       });
+    setHasProfile(true);
   };
 
   const handleLogout = () => {
     setUser('');
     fire.auth().signOut();
     localStorage.removeItem('userData');
+    setHasProfile(false);
   };
 
   const authListener = () => {
@@ -116,11 +123,9 @@ const Login: React.FC<Props> = () => {
   }, []);
 
   const renderProfile = () => {
-    const user = localStorage.getItem('userData');
-    if (user) {
+    if (hasProfileData) {
       return <ProfileData handleLogout={handleLogout} />;
-    }
-    if (user === null) {
+    } else {
       return <ProfileForm handleLogout={handleLogout} />;
     }
   };

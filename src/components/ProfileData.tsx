@@ -29,34 +29,42 @@ const ProfileData: React.FC<Props> = ({ handleLogout }) => {
     <div>
       {ime ? (
         <div className="ProfileData">
-          <table>
-            <h3>Osnovne Informacije</h3>
-            <tr>
-              <td>Ime</td>
-              <td>{ime}</td>
-            </tr>
-            <tr>
-              <td>Prezime</td>
-              <td>{prezime}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>{email}</td>
-            </tr>
-            <tr>
-              <td>Datum rođenja</td>
-              <td>{datum}</td>
-            </tr>
-            <tr>
-              <td>Adresa</td>
-              <td>{adresa}</td>
-            </tr>
-            <tr>
-              <td>OIB</td>
-              <td>{oib}</td>
-            </tr>
-          </table>
-          <div>Lista narudžbi</div>
+          <div className="ProfileData-content">
+            <div className="ProfileData-data">
+              <h3>Osnovne Informacije</h3>
+              <table>
+                <tr>
+                  <td>Ime</td>
+                  <td>{ime}</td>
+                </tr>
+                <tr>
+                  <td>Prezime</td>
+                  <td>{prezime}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{email}</td>
+                </tr>
+                <tr>
+                  <td>Datum rođenja</td>
+                  <td>{datum}</td>
+                </tr>
+                <tr>
+                  <td>Adresa</td>
+                  <td>{adresa}</td>
+                </tr>
+                <tr>
+                  <td>OIB</td>
+                  <td>{oib}</td>
+                </tr>
+              </table>
+            </div>
+
+            <div className="ProfileData-orders">
+              <h3>Lista narudžbi</h3>{' '}
+            </div>
+          </div>
+
           <button className="ProfileData-btn" onClick={() => handleLogout()}>
             Odjavi se
           </button>

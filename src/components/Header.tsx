@@ -8,6 +8,7 @@ interface Props {
   setPageToRender: (page: string) => void;
   goHome: () => void;
   filter: (str: string) => void;
+  hasProfile: boolean;
 }
 
 class Header extends React.Component<Props> {
@@ -36,7 +37,10 @@ class Header extends React.Component<Props> {
           </div>
         </div>
         <div className="Header-features">
-          <UserMenu setPageToRender={this.props.setPageToRender} />
+          <UserMenu
+            setPageToRender={this.props.setPageToRender}
+            hasProfile={this.props.hasProfile}
+          />
           <ActionBar
             setPageToRender={this.props.setPageToRender}
             filter={this.props.filter}

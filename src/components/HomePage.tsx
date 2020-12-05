@@ -20,6 +20,7 @@ interface state {
   cart: any[];
   itemsInCart: number;
   search: string;
+  hasProfile: boolean;
 }
 
 class HomePage extends Component<{}, state> {
@@ -31,8 +32,13 @@ class HomePage extends Component<{}, state> {
       cart: [],
       itemsInCart: 0,
       search: '',
+      hasProfile: false,
     };
   }
+
+  setHasProfile = (has: boolean) => {
+    this.setState({ hasProfile: has });
+  };
 
   filter = (str: string) => {
     this.setState({ search: str });
@@ -117,7 +123,7 @@ class HomePage extends Component<{}, state> {
       return <Contact />;
     }
     if (this.state.renderPage === 'login') {
-      return <Login />;
+      return <Login setHasProfile={this.setHasProfile} />;
     }
     if (this.state.renderPage === 'cart') {
       return (
@@ -136,6 +142,7 @@ class HomePage extends Component<{}, state> {
           setPageToRender={this.setPageToRender}
           goHome={this.goHome}
           filter={this.filter}
+          hasProfile={this.state.hasProfile}
         />
         <ItemsMenu setPageToRender={this.setPageToRender} />
         <div className="HomePage-render">
