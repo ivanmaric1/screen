@@ -82,7 +82,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 400px) and (max-width: 640px) {
   .Filter {
     display: flex;
     flex-direction: row;
@@ -95,8 +95,12 @@
   .boxes {
     padding: 5px 10px 15px 10px;
     box-shadow: 0px 0px 4px 2px var(--main-blue);
-    font-size: 0.8rem;
-    margin: 0 1rem;
+    font-size: 0.6rem;
+    margin: 0 0.5rem;
+  }
+  input[type='checkbox'] + label:before {
+    width: 15px;
+    height: 15px;
   }
 }
 
