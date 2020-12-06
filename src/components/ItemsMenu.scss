@@ -34,13 +34,11 @@
 @media screen and (max-width: 640px) {
   .ItemsMenu {
     width: 95vw;
+    padding: 0.2rem 0.5rem;
 
     &-list {
-      width: 80%;
-      margin: auto;
-
       li {
-        padding: 0rem 0.2rem;
+        padding: 0.5rem 0.2rem;
       }
     }
 

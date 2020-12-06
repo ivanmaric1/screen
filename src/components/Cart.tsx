@@ -72,7 +72,7 @@ const Cart: React.FC<Props> = ({ clearCart, deleteItemInCart }) => {
             <div>{total + ',00'}</div>
           </div>
           <div className="Cart-total-settings">
-            <button className="Cart-btn">Nastavi s kuponjom</button>
+            <button className="Cart-btn">Nastavi s kupnjom</button>
             <button className="Cart-btn">Nastavi na dostavu</button>
           </div>
         </div>
