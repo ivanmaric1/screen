@@ -60,10 +60,10 @@
 
 @media screen and (max-width: 640px) {
   .Login {
-    width: 200px;
-    height: 300px;
+    width: 300px !important;
+    height: 400px !important;
     margin: 10vh auto;
-    padding: 2rem;
+    padding: 1.5rem !important;
     font-size: 0.7rem;
   }
 }

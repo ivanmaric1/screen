@@ -98,10 +98,12 @@
       }
 
       &-img {
-        align-self: center;
+        display: flex;
+        justify-content: space-evenly;
+
         img {
           transition: none;
-          height: 300px;
+          height: 220px;
 
           &:hover {
             transform: none;

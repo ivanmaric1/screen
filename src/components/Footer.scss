@@ -29,30 +29,14 @@
   }
 }
 
-@media screen and (max-width: 640px) {
-  .Footer {
-    box-sizing: border-box;
-    width: 95vw;
-    height: 250px;
-    margin-bottom: 0rem;
-    font-size: 0.6rem;
-
-    &-right {
-      flex: 0;
-      img {
-        display: none;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 640px) and (max-width: 800px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
   .Footer {
     box-sizing: border-box;
     width: 95vw;
     height: 200px;
     margin-bottom: 0rem;
     font-size: 0.6rem;
+    flex-direction: column;
 
     &-right {
       flex: 0;

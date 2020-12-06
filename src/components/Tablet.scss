@@ -98,6 +98,9 @@
     flex-direction: column;
 
     &-left {
+      &-price-buy {
+        padding: 1rem 0.2rem !important;
+      }
       &-img {
         align-self: center;
         img {

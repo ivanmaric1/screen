@@ -12,7 +12,7 @@ const Footer = () => {
         <p>Sve navedene cijene su sa uračunatim PDV-om.</p>
         <br />
         <p>
-          Svijet Medija pokušava biti što precizniji u opisu proizvoda, ali ipak
+          Screen d.o.o pokušava biti što precizniji u opisu proizvoda, ali ipak
           ne može garantirati da su opis, slika i tehnički podaci proizvoda u
           potpunosti točni.
         </p>
