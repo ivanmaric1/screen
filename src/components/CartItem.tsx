@@ -18,7 +18,6 @@ const CartItem: React.FC<Props> = ({
   deleteItemInCart,
 }) => {
   const [amount, setAmount] = useState(1);
-
   const addItem = () => {
     setTotal(amount + 1);
     setAmount(amount + 1);
@@ -32,7 +31,6 @@ const CartItem: React.FC<Props> = ({
     let price: any =
       Number(cijena.replace(/ /g, '').slice(0, -5)) * amount + ',00';
     localStorage.setItem('price', price);
-
     return price;
   };
 

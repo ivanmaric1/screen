@@ -13,12 +13,10 @@ export interface State {}
 class ActionBar extends Component<Props, State> {
   renderNumberItems = () => {
     let data: any = localStorage.getItem('cart');
-
     let items = JSON.parse(data);
     if (items === null) {
       items = 1;
     }
-
     return items.length ? items.length : 0;
   };
   render() {

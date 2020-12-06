@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './WatchCard.scss';
 
 interface Props {

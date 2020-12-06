@@ -75,30 +75,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 640px) {
-  .Contact {
-    flex-direction: column;
-
-    &-info {
-      h4 {
-        display: none;
-      }
-
-      h2 {
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      &-logo {
-        align-self: center;
-        margin-bottom: 0rem;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 640px) and (max-width: 800px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
   .Contact {
     flex-direction: column;
 

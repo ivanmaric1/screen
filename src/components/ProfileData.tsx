@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import loader from '../img/loader.gif';
 import './ProfileData.scss';
 
@@ -59,12 +59,10 @@ const ProfileData: React.FC<Props> = ({ handleLogout }) => {
                 </tr>
               </table>
             </div>
-
             <div className="ProfileData-orders">
               <h3>Lista narudžbi</h3>{' '}
             </div>
           </div>
-
           <button className="ProfileData-btn" onClick={() => handleLogout()}>
             Odjavi se
           </button>

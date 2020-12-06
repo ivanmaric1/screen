@@ -18,7 +18,6 @@ const ProfileForm: React.FC<Props> = ({ handleLogout }) => {
 
   const createCustomer = (e: FormEvent) => {
     e.preventDefault();
-
     let newUser = userRef.push();
     newUser.set({
       Ime: name,
@@ -28,14 +27,12 @@ const ProfileForm: React.FC<Props> = ({ handleLogout }) => {
       DatumRođenja: dateOfBirth,
       OIB: oib,
     });
-
     setName('');
     setLastName('');
     setEmail('');
     setAdress('');
     setDateOfBirth('');
     setOib('');
-
     setLogged(true);
     localStorage.setItem('userData', email);
   };
@@ -109,14 +106,12 @@ const ProfileForm: React.FC<Props> = ({ handleLogout }) => {
             />
           </label>
         </div>
-
         <div className="ProfileForm-form-down">
           <div className="boxes">
             <input type="checkbox" id="box-1" />
             <label htmlFor="box-1">
               Želim primati obavijesti o novim proizvodima i akcijama
             </label>
-
             <input type="checkbox" id="box-2" />
             <label htmlFor="box-2">
               Prihvaćam i suglasan/-a sam s Općim uvjetima poslovanja i izjavom

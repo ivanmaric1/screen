@@ -1,4 +1,4 @@
-import React, { Component, ReactElement, useState } from 'react';
+import React, { Component, ReactElement } from 'react';
 import Filter from './Filter';
 import Phone from './Phone';
 import PhoneCard from './PhoneCard';

@@ -18,7 +18,6 @@ const Cart: React.FC<Props> = ({ clearCart, deleteItemInCart }) => {
     let renderedItems: any[] = [];
     let data: any = localStorage.getItem('cart');
     let items = JSON.parse(data);
-
     let prices: any = [];
     if (items) {
       for (let i = 0; i < items.length; i++) {
@@ -35,7 +34,6 @@ const Cart: React.FC<Props> = ({ clearCart, deleteItemInCart }) => {
         );
       }
     }
-
     localStorage.setItem('prices', JSON.stringify(prices));
     return renderedItems;
   };

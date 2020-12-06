@@ -36,13 +36,11 @@ class Tablets extends Component<Props, State> {
         />
       );
     });
-
     if (this.props.filter) {
       phonesCards = phonesCards.filter((item: any) =>
         item.props.ime.toLowerCase().includes(this.props.filter.toLowerCase())
       );
     }
-
     return phonesCards;
   };
 
@@ -58,7 +56,6 @@ class Tablets extends Component<Props, State> {
 
   renderContent = () => {
     let returned: any[] = [];
-
     if (!this.state.renderItem) {
       returned = this.renderCards();
     } else {
@@ -82,7 +79,6 @@ class Tablets extends Component<Props, State> {
         />
       );
     }
-
     return returned;
   };
 

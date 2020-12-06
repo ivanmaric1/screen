@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
   .Tablet {
     flex-direction: column;
 
@@ -113,46 +113,7 @@
   }
 }
 
-@media screen and (min-width: 640px) and (max-width: 800px) {
-  .Tablet {
-    flex-direction: column;
-
-    &-left {
-      &-img {
-        align-self: center;
-        img {
-          transition: none;
-          height: 300px;
-
-          &:hover {
-            transform: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1024px) {
-  .Tablet {
-    flex-direction: column;
-
-    &-left {
-      &-img {
-        align-self: center;
-        img {
-          transition: none;
-
-          &:hover {
-            transform: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1280px) {
+@media screen and (min-width: 800px) and (max-width: 1280px) {
   .Tablet {
     flex-direction: column;
 

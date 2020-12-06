@@ -24,7 +24,6 @@ class Sale extends Component<Props, State> {
   renderCards = () => {
     let phonesCards: any[] = [];
     let keys = Object.keys(tabletsBase);
-
     keys.map((phone) => {
       phonesCards.push(
         <ActionCard
@@ -43,7 +42,6 @@ class Sale extends Component<Props, State> {
         item.props.ime.toLowerCase().includes(this.props.filter.toLowerCase())
       );
     }
-
     return phonesCards;
   };
 

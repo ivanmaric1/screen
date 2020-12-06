@@ -24,7 +24,6 @@ class Watches extends Component<Props, State> {
   renderCards = () => {
     let phonesCards: any[] = [];
     let keys = Object.keys(watchesBase);
-
     keys.map((phone) => {
       phonesCards.push(
         <WatchCard
@@ -36,13 +35,11 @@ class Watches extends Component<Props, State> {
         />
       );
     });
-
     if (this.props.filter) {
       phonesCards = phonesCards.filter((item: any) =>
         item.props.ime.toLowerCase().includes(this.props.filter.toLowerCase())
       );
     }
-
     return phonesCards;
   };
 
@@ -58,7 +55,6 @@ class Watches extends Component<Props, State> {
 
   renderContent = () => {
     let returned: any[] = [];
-
     if (!this.state.renderItem) {
       returned = this.renderCards();
     } else {

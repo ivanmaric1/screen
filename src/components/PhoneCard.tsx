@@ -1,5 +1,4 @@
 import React from 'react';
-import Phone from './Phone';
 import './PhoneCard.scss';
 
 interface Props {

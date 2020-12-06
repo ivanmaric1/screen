@@ -15,23 +15,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
-  .Phones {
-    grid-gap: 1rem;
-    grid-template-columns: 1fr;
-    padding: 0rem;
-
-    &-items {
-      display: grid;
-      width: 100%;
-      grid-template-columns: 1fr;
-      grid-row-gap: 2rem;
-      align-content: center;
-    }
-  }
-}
-
-@media screen and (min-width: 640px) and (max-width: 800px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
   .Phones {
     grid-gap: 1rem;
     grid-template-columns: 1fr;

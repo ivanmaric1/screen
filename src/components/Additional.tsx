@@ -24,7 +24,6 @@ class Additional extends Component<Props, State> {
   renderCards = () => {
     let phonesCards: any[] = [];
     let keys = Object.keys(additionalBase);
-
     keys.map((phone) => {
       phonesCards.push(
         <PhoneCard
@@ -36,13 +35,11 @@ class Additional extends Component<Props, State> {
         />
       );
     });
-
     if (this.props.filter) {
       phonesCards = phonesCards.filter((item: any) =>
         item.props.ime.toLowerCase().includes(this.props.filter.toLowerCase())
       );
     }
-
     return phonesCards;
   };
 
@@ -58,7 +55,6 @@ class Additional extends Component<Props, State> {
 
   renderContent = () => {
     let returned: any[] = [];
-
     if (!this.state.renderItem) {
       returned = this.renderCards();
     } else {
