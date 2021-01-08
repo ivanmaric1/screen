@@ -20,11 +20,12 @@ const AdditionalEq: React.FC<Mobitel> = ({
   closePhoneItem,
   addToCart,
 }) => {
+  const front = require(`../img/products/${foto.prednja}.png`);
   return (
     <div className="Tablet">
       <div className="Tablet-left">
         <div className="Tablet-left-img">
-          <img src={foto.prednja} alt="slika_prednja" />
+          <img src={front.default} alt="slika_prednja" />
         </div>
         <div className="Tablet-left-price">
           <button className="Tablet-left-price-back " onClick={closePhoneItem}>
@@ -34,7 +35,7 @@ const AdditionalEq: React.FC<Mobitel> = ({
           <button className="Tablet-left-price-amount">{cijena}</button>
           <button
             className="Tablet-left-price-buy"
-            onClick={() => addToCart(ime, foto.prednja, cijena)}
+            onClick={() => addToCart(ime, front.default, cijena)}
           >
             Dodaj u košaricu <i className="fas fa-shopping-cart fa-lg"></i>
           </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 import './Phone.scss';
 
 interface Mobitel {
@@ -35,12 +36,14 @@ const Phone: React.FC<Mobitel> = ({
   closePhoneItem,
   addToCart,
 }) => {
+  const front = require(`../img/products/${foto.prednja}.png`);
+  const back = require(`../img/products/${foto.zadnja}.png`);
   return (
     <div className="Phone">
       <div className="Phone-left">
         <div className="Phone-left-img">
-          <img src={foto.prednja} alt="slika_prednja" />
-          <img src={foto.zadnja} alt="slika_zadnja" />
+          <img src={front.default} alt="slika_prednja" />
+          <img src={back.default} alt="slika_zadnja" />
         </div>
         <div className="Phone-left-price">
           <button className="Phone-left-price-back " onClick={closePhoneItem}>
@@ -50,7 +53,7 @@ const Phone: React.FC<Mobitel> = ({
           <button className="Phone-left-price-amount">{cijena}</button>
           <button
             className="Phone-left-price-buy"
-            onClick={() => addToCart(ime, foto.prednja, cijena)}
+            onClick={() => addToCart(ime, front.default, cijena)}
           >
             Dodaj u košaricu <i className="fas fa-shopping-cart fa-lg"></i>
           </button>

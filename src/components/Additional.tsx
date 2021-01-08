@@ -96,8 +96,7 @@ const additionalBase = {
       '2G: 850 / 900 / 1800 / 1900 / 3G: 900 / 2100 / 4G (LTE): 800 / 900 / 1800 / 2100 / 2600 (B1/3/7/8/20/32/38)',
     cijena: '899,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/Pokucni_internet_200915110028_500x700.png',
+      prednja: 'b535',
     },
     specifikacija:
       'Prijenos podataka: HSPA+ do 42,2 Mb/s, LTE 300/100 (CAT 7), Wi-Fi Hotspot (802.11b/g/n/ac/a/n), Wi-Fi MIMO 2x2 / Kompatibilnost: Windows 8.1, Windows 8, Windows 7, Windows 10, Windows Vista SP1/SP2, Windows XP SP3, Mac OS X / Eksterni ulazi: 3x LAN (RJ45), 1x WAN/LAN (RJ45), 1x USB 2.0, 1x Telefonski ulaz (RJ11), Micro SD utor / Dodatni ulazi za antene: DA, 2X LTE antena ulaza (SMA-J1.5) / Ostalo: WPS, do 64 aktivnih konekcija',
@@ -108,8 +107,7 @@ const additionalBase = {
       '2G: 850 / 900 / 1800 / 1900 / 3G: 850 / 900 / 2100 / 4G (LTE): 2100 / 1800 / 850 / 2600 / 900 / 800 / 2300',
     cijena: '549,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/MF927U4CroatiaTELE2_240220_200415152218_500x700.png',
+      prednja: 'zte',
     },
     specifikacija:
       'Kompatibilnost: Windows 8.1, Windows 8, Windows 7, Windows 10, Windows Vista SP1/SP2, Windows XP SP3, Mac OS X / Baterija: 2000 mAh vrijeme rada do 7h / Ostalo: WPA/WPA2, do 32 aktivnih konekcija',

@@ -96,8 +96,7 @@ const watchesBase = {
       'Neka vam dijete uvijek bude na oku, čak i kad nije u tvojoj blizini! Uz MyKi Smart Watch uvijek ćete znati gdje se dijete nalazi, a Myki Smart Watch tvoj će mališan s užitkom nositi. ',
     cijena: '999,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/Mykisat__0002_Pink_201020091531_500x700.png',
+      prednja: 'myki',
     },
     specifikacija: {
       dimenzija: '56,20x14,30x38,70 mm',
@@ -114,7 +113,7 @@ const watchesBase = {
       'HUAWEI WATCH GT serija uvijek pomiče granice trajanja baterije pametnog sata. Uz HUAWEI samorazvojni nosivi čipset Kirin A1, dizajn dvostrukog čipa i inteligentnu tehnologiju za uštedu energije, sat možete bezbrižno koristiti danju i noću do 2 tjedna.',
     cijena: '1 599,00 kn',
     foto: {
-      prednja: 'https://www.tele2.hr/upload/T0602145_200831165306_500x700.png',
+      prednja: 'gt2',
     },
     specifikacija: {
       dimenzija: '45,9 mm x 45,9mm x 10,7 mm',
@@ -131,7 +130,7 @@ const watchesBase = {
       'HUAWEI WATCH GT serija uvijek pomiče granice trajanja baterije pametnog sata. Uz HUAWEI samorazvojni nosivi čipset Kirin A1, dizajn dvostrukog čipa i inteligentnu tehnologiju za uštedu energije, sat možete bezbrižno koristiti danju i noću do 2 tjedna.',
     cijena: '1 799,00 kn',
     foto: {
-      prednja: 'https://www.tele2.hr/upload/T0602146_200831165231_500x700.png',
+      prednja: 'gt2e',
     },
     specifikacija: {
       dimenzija: '45,9 mm x 45,9mm x 10,7 mm',
@@ -148,8 +147,7 @@ const watchesBase = {
       'Ovaj sat napravljen je od safirnog stakla i otporan je na ogrebotine, a neprimjetno se spaja s titanijskim kućištem za lagan i čvrst dizajn. Sjajna i koži prijateljska keramička poleđina osiguravaju ugodno nošenje. Sofisticiranom obradom, HUAWEI WATCH GT 2 Pro predstavlja profinjeni ukus uz savršenu ravnotežu umjetnosti i tehnologije.',
     cijena: '2 249,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/HuaweiGT2Pro_500x700px_201113111450_500x700.png',
+      prednja: 'gt2n',
     },
     specifikacija: {
       dimenzija: '46,7 mm x 46,7mm x 11,4 mm',
@@ -167,8 +165,7 @@ const watchesBase = {
       'Sat koji se brine o Vama. Uz Galaxy Watch3 dobivate kombinaciju produktivnosti kao na pametnom telefonu i vodeće tehnologije za praćenje zdravlja u jednom premium i klasičnom uređaju. Naš najnapredniji Galaxy sat dosad, Galaxy Watch3 pomaže Vam da bez napora upravljate svojim životom i zdravljem – Vaša je dobrobit u Vašim rukama.',
     cijena: '2 699,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/T0602248novo_200831142720_500x700.png',
+      prednja: 'galaxy3',
     },
     specifikacija: {
       dimenzija: ' 42.5 x 41.0 x 11.3 mm',
@@ -187,8 +184,7 @@ const watchesBase = {
       'Jedini pametni sat s precizno rotirajućim okvirom za navigaciju po aplikacijama. Biraj između dviju veličina kućišta, 45 mm ili 41 mm, od kojih svako dolazi s dojmljivim brojčanikom. Dostupan u vrhunskoj mistično crnoj, mistično sivoj i mistično brončanoj izvedbi, njegov se elegantan dizajn istaknut je u jedinstvenom rotirajućem okviru za izgled koji te ne prestaje oduševljavati.',
     cijena: '2 899,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/T0602249novo_200831142736_500x700.png',
+      prednja: 'galaxy3b',
     },
     specifikacija: {
       dimenzija: ' 42.5 x 41.0 x 11.3 mm',

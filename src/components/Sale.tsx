@@ -101,8 +101,7 @@ const tabletsBase = {
     cijenaStara: '1 899,00 kn',
     cijenaNova: '1 899,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/Catspoklonom_v2_201102140117_500x700.png',
+      prednja: 'cat',
     },
     specifikacija: {
       dimenzija: '161,30x77,20x12,70 mm',
@@ -120,7 +119,7 @@ const tabletsBase = {
     cijenaStara: '399,00 kn',
     cijenaNova: '199,00 kn',
     foto: {
-      prednja: 'https://www.tele2.hr/upload/alcatel_200928152954_500x700.png',
+      prednja: 'alcatel',
     },
     specifikacija: {
       dimenzija: '124x51,50x12,75 mm',
@@ -138,8 +137,7 @@ const tabletsBase = {
     cijenaStara: '1 999,00 kn',
     cijenaNova: '1 599,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/MotoG9Plusfront_201014140615_500x700.png',
+      prednja: 'g9',
     },
     specifikacija: {
       dimenzija: '	170x78,10x9,70 mm',
@@ -158,8 +156,7 @@ const tabletsBase = {
     cijenaStara: '899,00 kn',
     cijenaNova: '599,00 kn',
     foto: {
-      prednja:
-        'https://www.tele2.hr/upload/Doro_PhoneEasy_632_midnight_blue_front_1912_200204144533_500x700.png',
+      prednja: 'doro',
     },
     specifikacija: {
       dimenzija: '104x53x20 mm',

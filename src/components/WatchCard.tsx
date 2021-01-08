@@ -16,13 +16,14 @@ const Watch: React.FC<Props> = ({
   openPhoneItem,
   brand,
 }) => {
+  const front = require(`../img/products/${foto}s.png`);
   return (
     <div className="WatchCard" id={brand}>
       <p className="WatchCard-name" onClick={(event) => openPhoneItem(event)}>
         {ime}
       </p>
       <img
-        src={foto}
+        src={front.default}
         alt="phone"
         className="WatchCard-img"
         onClick={(event) => openPhoneItem(event)}

@@ -18,13 +18,14 @@ const ActionCard: React.FC<Props> = ({
   openPhoneItem,
   brand,
 }) => {
+  const front = require(`../img/products/${foto}s.png`);
   return (
     <div className="ActionCard" id={brand}>
       <p className="ActionCard-name" onClick={(event) => openPhoneItem(event)}>
         {ime}
       </p>
       <img
-        src={foto}
+        src={front.default}
         alt="phone"
         className="ActionCard-img"
         onClick={(event) => openPhoneItem(event)}
